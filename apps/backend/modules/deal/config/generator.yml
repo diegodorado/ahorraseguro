@@ -1,0 +1,44 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Deal
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          deal
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+    css:                   nothing   #setting the css to a placeholder 
+
+    config:
+      actions: ~
+
+      fields:
+        description: {params: cols=500}
+      list:
+        title: Listado de Ofertas
+        layout: stacked
+        display: [title]
+        params: |
+          %%_thumb%%
+          %%_stats%%
+          <h4>%%=title%%</h4>
+          <em>%%=category%%</em>
+        object_actions:
+          _edit: ~
+          _delete: ~
+          payments: {label: Operaciones, action: payments}
+      filter:
+        display: [active,type, category_id, title, seller]
+      form:
+        display:
+          General: [type, category_id, store_id, seller_id, title, newsletter_title, seller]
+          Contenido: [description, featured, conditions]
+          Fechas: [starts_at, ends_at]
+          Media: [image]
+          Precios: [offer, real_value]
+          Estadisticas: [bought_count, visited_count, printed_count]
+      edit:    ~
+      new:     ~

@@ -1,0 +1,149 @@
+.progress_bar_wrapper{
+  height: 50px;
+  width: 500px;
+  border: 1px solid #ccc;
+  background: #e7e7e7;
+  position: relative;
+}
+
+.progress_bar_wrapper .progress_bar{
+  height: 50px;
+  background: #00508C;
+}
+
+.progress_bar_wrapper .percent{
+  position: absolute;
+  top: 0;
+  line-height: 50px;
+  text-align: center;
+  left: 0;
+  width: 500px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+#message_preview{
+  background: url(/images/admin/mail-preview-1-bg.png) repeat-y;
+}
+
+#message_preview .gmail{
+  background: url(/images/admin/mail-preview-2-bg.png) no-repeat;
+  padding: 254px 25px 38px 196px;
+  width: 820px;
+}
+
+#sf_admin_container #message_preview .gmail table,
+#sf_admin_container #message_preview .gmail table td,
+#sf_admin_container #message_preview .gmail table th{
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 0;
+  padding: 0;
+  margin:0;
+}
+
+
+.datetime-wrapper{
+  overflow:hidden;
+}
+.date-wrapper,.time-wrapper{
+float: left;
+}
+
+#sf_admin_content .content .datetime-wrapper .date-wrapper input,
+#sf_admin_content .content .datetime-wrapper .time-wrapper input{
+width: 100px;
+}
+
+
+.ac_results {
+	padding: 0px;
+	border: 1px solid black;
+	background-color: white;
+	overflow: hidden;
+	z-index: 99999;
+}
+
+.ac_results ul {
+	width: 100%;
+	list-style-position: outside;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.ac_results li {
+	margin: 0px;
+	padding: 2px 5px;
+	cursor: default;
+	display: block;
+	font: menu;
+	font-size: 12px;
+	line-height: 16px;
+	overflow: hidden;
+}
+
+.ac_loading {
+	background: white url('indicator.gif') right center no-repeat;
+}
+
+.ac_odd {
+	background-color: #eee;
+}
+
+.ac_over {
+	background-color: #0A246A;
+	color: white;
+}
+	
+	
+div.tag-suggestions li a,
+div.tag-suggestions li a:link,
+.ac_results .ac_even,
+.ac_results .ac_odd
+{
+float: left;
+display: block;
+visibility: visible;
+width: 100%;
+line-height: 20px;
+text-indent: 4px;
+background: rgba(0,0,0,0.65);
+color: #fff !important;
+text-decoration: none !important;
+font-size: 11px;
+}
+
+div.tag-suggestions li a:hover,
+.ac_results .ac_over
+{
+background-color: #000;
+color: #fff !important;
+text-decoration:none;
+cursor: pointer;
+}
+
+.ac_results{
+z-index: 9999;
+font-size: 11px;
+border: none;
+min-width: 120px;
+}
+
+.ac_results ul{
+overflow: visible !important;
+}
+
+.ac_results li
+{
+font-family: arial, sans-serif;
+}
+
+.ac_results .ac_even,
+.ac_results .ac_odd
+{
+white-space: nowrap;
+padding: 0 4px;
+overflow: hidden;
+}
+

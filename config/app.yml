@@ -1,0 +1,8 @@
+all:
+  sfImageTransformPlugin:
+    default_adapter: GD # GD or ImageMagick
+    default_image:
+      mime_type: image/png
+    mime_type:
+      auto_detect: true
+      library: gd_mime_type #  gd_mime_type (GD), Fileinfo (PECL), MIME_Type (PEAR)

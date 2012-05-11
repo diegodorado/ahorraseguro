@@ -1,0 +1,29 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Payment
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          payment
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+    css:                   nothing   #setting the css to a placeholder 
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        title: Listado de Pagos
+        layout: stacked
+        display: [Pagos]
+        params: |
+          <h4>%%=id%%</h4>
+          <em>%%=status%%</em>
+      filter:
+        display: [status, deal_id, user_id]
+      form:    ~
+      edit:    ~
+      new:     ~

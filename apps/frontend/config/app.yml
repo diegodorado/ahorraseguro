@@ -1,0 +1,30 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/11-App
+
+# default values
+all:
+  fb_fanpage: http://www.facebook.com/AhorraSeguro
+  youtube_link: http://www.youtube.com/embed/_xgPtqT0XBY?wmode=transparent 
+  from_email: info@ahorraseguro.com.ar
+  from_fullname: El Equipo de info@ahorraseguro.com.ar
+  contact_phone:  +54 000 000
+  contact_email: info@ahorraseguro.com.ar
+  
+  sf_guard_plugin:
+    routes_register: false  
+    signin_form: userSigninForm
+    
+  dineromail:
+    checkout_url: https://checkout.dineromail.com/CheckOut
+    checkout_params:
+      tool: cart
+      merchant: 1992734
+      country_id: 1
+      seller_name: info@ahorraseguro.com.ar
+      languge: es
+      currency: ars
+      header_image: http://mendozaoferta.cooph.com.ar/images/dineromail_logo.png
+      change_quantity: 0
+      expanded_sale_detail: 1
+
+      

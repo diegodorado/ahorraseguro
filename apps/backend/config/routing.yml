@@ -1,0 +1,79 @@
+store:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Store
+    module:               store
+    prefix_path:          /store
+    column:               id
+    with_wildcard_routes: true
+
+seller:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Seller
+    module:               seller
+    prefix_path:          /seller
+    column:               id
+    with_wildcard_routes: true
+
+newsletter_email:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                NewsletterEmail
+    module:               newsletter_email
+    prefix_path:          /newsletter_email
+    column:               id
+    with_wildcard_routes: true
+
+newsletter_message:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                NewsletterMessage
+    module:               newsletter_message
+    prefix_path:          /newsletter_message
+    column:               id
+    with_wildcard_routes: true
+
+payment:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Payment
+    module:               payment
+    prefix_path:          /payment
+    column:               id
+    with_wildcard_routes: true
+
+deal:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Deal
+    module:               deal
+    prefix_path:          /deal
+    column:               id
+    with_wildcard_routes: true
+
+category:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Category
+    module:               category
+    prefix_path:          /category
+    column:               id
+    with_wildcard_routes: true
+
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/10-Routing
+
+# default rules
+homepage:
+  url:   /
+  param: { module: sfAdminDash, action: dashboard }
+
+# generic rules
+# please, remove them by adding more specific rules
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*

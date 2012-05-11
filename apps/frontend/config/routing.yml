@@ -1,0 +1,135 @@
+homepage:
+  url:   /
+  param: { module: deals, action: index }
+
+deals:
+  url:   /deals
+  param: { module: deals, action: index }
+
+closed_deals:
+  url:   /closed_deals
+  param: { module: deals, action: closed }
+
+promo_deals:
+  url:   /promo_deals
+  param: { module: deals, action: promoDeals }
+
+deal:
+  url:   /deal/:id
+  class:    sfDoctrineRoute
+  param: { module: deals, action: show }
+  options:  { model: Deal, type: object }
+
+print:
+  url:   /print/:id
+  class:    sfDoctrineRoute
+  param: { module: deals, action: print }
+  options:  { model: Deal, type: object }
+
+buy:
+  url:   /buy/:id
+  class:    sfDoctrineRoute
+  param: { module: deals, action: checkout }
+  options:  { model: Deal, type: object }
+
+pay:
+  url:   /pay
+  param: { module: deals, action: pay }
+
+payment_ok:
+  url:   /payment_ok/:id
+  class:    sfDoctrineRoute
+  param: { module: deals, action: paymentOk }
+  options:  { model: Payment, type: object }
+
+payment_error:
+  url:   /payment_error/:id
+  class:    sfDoctrineRoute
+  param: { module: deals, action: paymentError }
+  options:  { model: Payment, type: object }
+
+descuentos_category:
+  url:   /descuentos_category/:id
+  class:    sfDoctrineRoute
+  param: { module: deals, action: descuentosCategory }
+  options:  { model: Category, type: object }
+
+descuentos_category_list:
+  url:   /descuentos_category_list
+  param: { module: deals, action: descuentosCategoryList }
+
+promociones_category:
+  url:   /promociones_category/:id
+  class:    sfDoctrineRoute
+  param: { module: deals, action: promocionesCategory }
+  options:  { model: Category, type: object }
+
+promociones_category_list:
+  url:   /promociones_category_list
+  param: { module: deals, action: promocionesCategoryList }
+
+
+#contact
+contact_us:
+  url:   /contact_us
+  param: { module: contact_us, action: index }
+
+contact_us_sent:
+  url:  /contact_us/sent
+  param: { module: contact_us, action: sent }
+
+
+#static
+about_us:
+  url:   /about_us
+  param: { module: static, action: aboutUs }
+faq:
+  url:   /faq
+  param: { module: static, action: faq }
+how_it_works:
+  url:   /how_it_works
+  param: { module: static, action: howItWorks }
+privacy_policy:
+  url:   /privacy_policy
+  param: { module: static, action: privacyPolicy }
+
+
+#user
+sf_guard_signin:
+  url:   /login
+  param: { module: sfGuardAuth, action: signin }
+sf_guard_signout:
+  url:   /logout
+  param: { module: sfGuardAuth, action: signout }
+sf_guard_password:
+  url:   /request_password
+  param: { module: sfGuardAuth, action: password }
+user_signup:
+  url:   /register
+  param: { module: users, action: register }
+user_suscribe:
+  url:   /suscribe
+  param: { module: users, action: suscribe }
+user_unsuscribe:
+  url:   /unsuscribe/:token
+  param: { module: users, action: unsuscribe }
+user_deals:
+  url:   /user_deals
+  param: { module: users, action: deals }
+user_boucher:
+  url:   /boucher/:id
+  class:    sfDoctrineRoute
+  param: { module: users, action: boucher }
+  options:  { model: Payment, type: object }
+user_savings:
+  url:   /user_savings
+  param: { module: users, action: savings }
+user_account:
+  url:   /user_account
+  param: { module: users, action: account }
+user_edit_account:
+  url:   /user_edit_account
+  param: { module: users, action: editAccount }
+user_change_password:
+  url:   /user_change_password
+  param: { module: users, action: changePassword }

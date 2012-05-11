@@ -1,0 +1,10 @@
+print:
+  is_secure: true
+checkout:
+  is_secure: true
+pay:
+  is_secure: true
+paymentOk:
+  is_secure: true  
+paymentError:
+  is_secure: true    

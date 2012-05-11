@@ -1,0 +1,12 @@
+deals:
+  is_secure: true
+boucher:
+  is_secure: true
+savings:
+  is_secure: true
+account:
+  is_secure: true
+editAccount:
+  is_secure: true
+changePassword:
+  is_secure: true

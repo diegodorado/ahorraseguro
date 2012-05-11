@@ -1,0 +1,41 @@
+all:
+  sf_admin_dash:
+    web_dir:                      /sfAdminDashPlugin
+    image_dir:                    /sfAdminDashPlugin/images/icons/
+    default_image:                config.png
+    resize_mode:                  thumbnail
+    site:                         Ahorra Seguro
+    include_path:                 true
+    include_jquery_no_conflict:   false
+    logout:                       true
+    login_route:                  @sf_guard_signin
+    logout_route:                 @sf_guard_signout
+    categories:
+      Datos:
+        items:
+          Vendedores:
+            url:    seller
+            image:        addedit.png
+          Comercios:
+            url:    store
+            image:        addedit.png
+          Categorias:
+            url:    category
+            image:        addedit.png
+          Ofertas:
+            url:    deal
+            image:        addedit.png
+          Pagos:
+            url:    payment
+            image:        addedit.png
+      Usuarios:
+        items:
+          Usuarios:
+            url:          sf_guard_user
+            image:        users.png
+      Newsletter:
+        items:
+          Suscriptos:
+            url:    newsletter_email            
+          Mensajes:
+            url:    newsletter_message

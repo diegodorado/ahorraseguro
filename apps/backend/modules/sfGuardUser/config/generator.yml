@@ -1,0 +1,44 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           sfGuardUser
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    route_prefix:          sf_guard_user
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+    css:                   nothing   #setting the css to a placeholder 
+    
+    config:
+      fields:
+        username: { label: "Nombre de usuario" }
+        first_name: { label: "Nombre" }
+        email_address: { label: "Email" }
+        password: { label: "Contraseña" }
+        password_again: { label: "Confirmar Contraseña" }
+        last_name: { label: "Apellido" }
+        is_active: { label: "Activo?" }
+        is_super_admin: { label: "Super Admin?" }
+      filter:
+        display: [username, email_address, first_name, last_name]
+      list:
+        title:   Listado de Usuarios
+        display: [=username, email_address, first_name, last_name]
+      form:
+        class: sfGuardUserAdminForm
+
+      edit:
+        title: Editando Usuario "%%username%%"
+        actions:
+          _save: ~
+          _delete: ~
+          _list: 
+            label: Volver      
+      new:
+        title: Nuevo Usuario
+        actions: 
+          _save: ~
+          _save_and_add: ~
+          _list: 
+            label: Volver

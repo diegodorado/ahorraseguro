@@ -1,0 +1,128 @@
+
+todo:
+ajustar cronjobs
+testearlo
+
+
+
+* en el filtro del listado de ofertas no hay uno que me permita ver por usuario.
+* en mi cuenta > mis cupones una vez que se imprime el cupón (que también se envió por mail) debe desaparecer la opción de imprimir y aparecer "ya has impreso este cupón".
+* Me gustaría que cada usuario tenga en su cuenta la cantidad de compras que ha realizado, la cantidad dinero que ha abonado, la cantidad de dinero que ha ahorrado. ¿es esto posible o hay que presupuestarlo? Si hay que presupuestar, por favor haganlo.
+
+En el espacio en blanco que queda a la derecha colocar lo siguiente:
+" Ahorra seguro es bueno para vos y para tus amigos. Compartilo con ellos y ganá!
+Y colocar el ícono de enviar por mail. facebook linkedin, twiter " (no ha de ser muy caro ¿no? :-) )
+
+traducir los textos alternativos (alt=) en el ícono de facebook, twiter y mail
+
+en admin > listado de ofertas.
+El filtro de "Vendedor" podría ir autocompletando o podría tener en algún lugar un listado de vendedores? De ese modo, al tener muchos (cosa que esperamos) se podrá tener una forma mas interesante de acceso a esa información...
+
+
+==PRESU 2==
+
+PRESUPUESTO: Colocar en la cuenta del usuario el movimiento de su cuenta: cuanto ha comprado, fecha de la compra, título del artículo, cuanto ha sido el descuento y cuanto ha ahorrado (ese dato figura en la pag. principal). Al final de la planilla indicar el total de las compras y el total de lo ahorrado en forma razonablemente destacada. El objetivo es, obviamente, el entusiasmo.
+
+Ampliación solicitud de presupuesto por envío de mail (boletín diario) a usuarios registrados.
+Cada día enviamos a los usuarios registrados y a los suscriptos al boletín. un boletín con los ofertones del día.
+Es una plantilla en la que se insertan los ofertones de ese día (que se activan ese día) Si hay un solo ofertón, va ese solo. Si hay varios (que se activan en ese día) irán varios, uno debajo del otro como en la pag principal)
+Es para todos los usuarios registrados y los suscriptos al boletín.
+-- detalle -- tengo cientos de direcciones para incorporar a la base de datos como usuarios registrados al boletín (cualquier parecido con spam es pura coincidencia) ¿se los puedo pasar oportunamente para que se suban a la base de datos? se puede hacer automáticamente de alguna manera (espero comentarios sobre este asunto)
+
+
+
+
+
+backend:
+  cambiar las traducciones de los postvalidator
+
+==HECHO==
+
+Decía: "Al terminar el plazo de tiempo de un ofertón, tengo que tener un listado de las operaciones efectivamente realizadas de ese ofertón, 
+de modo de poder entregar al negocio un listado con la cantidad de operaciones efectivamente realizadas y el nombre del usuario que ha realizado 
+la compra y un código de identificación. Con esto el negocio sabe a quien brindar el servicio y a quien no. 
+(además el cliente debe llegar al negocio con su boucher, el cual le llegó por correo y también lo puede imprimir accediendo a su cuenta."
+
+El tema es que el listado es solo visualizable en pantalla. 
+No puedo imprimirlo y tampoco mandarlo al negocio como file de modo que pueda 
+revisar y chequear cuando el comprador llega con su boucher. 
+Tampoco figura el código de operación ni el nombre del usuario que ha realizado la compra.
+
+Decía:" en el backend se muestran los campos "nombre" y "apellido" del usuario. 
+En el alta del usuario se le solicita un solo campo que se nombra como "nombre de usuario" 
+Corregir en el alta de usuario de modo que tenga los campos "nombre" y "apellido" igual que en el backend 
+(donde tampoco se está mostrando el campo nombre de usuario."
+
+En el alta de usuario se solicita "nombre de usuario" y además nombre y apellido. 
+No queremos trabajar con nombre de usuario, sino con datos que el usuario no olvide. como por ejemplo su mail. 
+Entonces: quitar nombre de usuario del login de usuario registrado (solo quedará su mail y contraseña para ingresas).
+ Quitar de alta de nuevo usuario el campo "nombre de usuario" dejando los otros campos tal cual están. 
+ (¿tiene el sistema código como para detectar errores en el alta del mail?)
+
+
+* La cabecera de la principal está hecha en porcentajes. 
+Colocar valor fijo, porque al variar el tamaño de pantalla, el logo (que si está fijo) se descentra. 
+(o poner el logo también en porcentaje... lo que resulte mas fácil)
+
+* en la pag principal no está figurando el tiempo que resta de los ofertones 
+(si al ver el ofertón en detalle) 
+Debe figurar. (en las primeras pruebas figuraba y luego desapareció)
+
+filtros por tipo no funca
+
+Al terminar el plazo de tiempo de un ofertón, 
+tengo que tener un listado de las operaciones efectivamente realizadas de ese ofertón, 
+de modo de poder entregar al negocio un listado con la cantidad de operaciones efectivamente 
+realizadas y el nombre del usuario que ha realizado la compra y un código de identificación. 
+Con esto el negocio sabe a quien brindar el servicio y a quien no. 
+(además el cliente debe llegar al negocio con su boucher, 
+el cual le llegó por correo y también lo puede imprimir accediendo a su cuenta.
+
+las promociones son las que se imprimen directamente y no se pagan 
+(son regalos que hacen los comerciantes a los suscriptos a nuestro sitio. 
+No se debe poder imprimir la promoción si no se está logueado. 
+
+Al realizar la compra, no se debe ir directamente al sitio de compra sin consultar primero 
+al usuario la cantidad (unidades) de ese artículo que quiere comprar. 
+(fijarse en el sistema de groupon o cualquier otro)
+
+El boucher: tiene que tener el título del ofertón o del descuento, 
+la fecha de compra, 
+el importe real, 
+el descuento y 
+el importe final. 
+Un número de referencia único e irrepetible (un código) de esa operación. 
+Ese detalle (puede ser con el gráfico incluído para hacerlo mas atractivo) 
+el usuario lo puede imprimir desde su correo electrónico -al realizar la compra recibe 
+el mail- o accediendo a su cuenta. 
+
+en el backend se muestran los campos "nombre" y "apellido" del usuario. 
+En el alta del usuario se le solicita un solo campo que se nombra como "nombre de usuario" 
+Corregir en el alta de usuario de modo que tenga los campos "nombre" y "apellido" 
+igual que en el backend (donde tampoco se está mostrando el campo nombre de usuario.
+
+cuando me logueo, no tengo acceso a "mi cuenta" : 
+Espacio en el que veo el movimiento que he realizado.
+
+==NOT A BUG==
+
+Los descuentos funcionan como los ofertones - se pagan con tarjeta -
+
+al comprar llegué hasta el sitio de dineromail pero no completé la operación 
+(me fui antes de terminar) y el sistema registra como que hice la compra. 
+La compra debe registrarse como válida a la vuelta de la transacción, 
+no cuando accedo al sitio de dineromail.
+
+Al hacer desde la pagina principal ckik en alguna categoría de descuentos no aparece ningún producto 
+(aunque haya productos en esa categoría)
+
+Decia: Al hacer desde la pagina principal ckik en alguna categoría de descuentos no aparece ningún producto (aunque haya productos en esa categoría)
+Sigue sin funcionar. Hay artículos pero no se muestran. Siempre dice "no hay descuentos en ..."
+
+
+¿le está llegando al comprador por mail los detalles de su compra? (la que también puede visualizar en su cuenta)
+
+==WONT CHANGE==
+tanto descuento como promociones tienen que tener el listado de categorías.
+El usuario SOLO PUEDE IMPRIMIR UNA PROMOCIÓN POR DÍA.
+
