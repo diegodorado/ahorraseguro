@@ -8,3 +8,4 @@ config/databases.yml
 data/*
 .sass-cache
 .svn
+backups/*
