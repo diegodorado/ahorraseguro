@@ -6,7 +6,7 @@ set :port, 4198
 ssh_options[:auth_methods] = ["publickey"]
 ssh_options[:keys] = ["~/.ssh/common_rsa"]
 set :use_sudo, false
-
+set :deploy_via, :remote_cache
 
 set :repository,  "git://github.com/diegodorado/#{application}.git"
 set :scm, :git
