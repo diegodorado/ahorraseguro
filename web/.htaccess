@@ -1,4 +1,6 @@
 Options +FollowSymLinks +ExecCGI
+AddHandler x-httpd-php5 .php
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
 

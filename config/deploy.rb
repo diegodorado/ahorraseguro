@@ -18,3 +18,11 @@ role :app,        domain                         # This may be the same as your 
 role :db,         domain, :primary => true       # This is where Rails migrations will run
 
 set  :keep_releases,  5
+
+after "deploy:finalize_update" do
+  run "chown -R ahorras:ahorras #{latest_release}"
+  run "chmod 755 #{latest_release}"
+  run "chmod 755 #{latest_release}/web"
+  run "chmod 644 #{latest_release}/web/*.php"
+  #run "sudo chmod -R 777 #{latest_release}/#{cache_path}"
+end
