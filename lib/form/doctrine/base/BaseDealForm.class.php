@@ -33,7 +33,6 @@ abstract class BaseDealForm extends BaseFormDoctrine
       'featured'         => new sfWidgetFormTextarea(),
       'conditions'       => new sfWidgetFormTextarea(),
       'description'      => new sfWidgetFormTextarea(),
-      'seller'           => new sfWidgetFormInputText(),
       'created_at'       => new sfWidgetFormDateTime(),
       'updated_at'       => new sfWidgetFormDateTime(),
     ));
@@ -57,7 +56,6 @@ abstract class BaseDealForm extends BaseFormDoctrine
       'featured'         => new sfValidatorString(array('max_length' => 4000)),
       'conditions'       => new sfValidatorString(array('max_length' => 4000)),
       'description'      => new sfValidatorString(array('max_length' => 4000)),
-      'seller'           => new sfValidatorString(array('max_length' => 255)),
       'created_at'       => new sfValidatorDateTime(),
       'updated_at'       => new sfValidatorDateTime(),
     ));

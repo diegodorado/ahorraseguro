@@ -30,7 +30,6 @@ abstract class BaseDealFormFilter extends BaseFormFilterDoctrine
       'featured'         => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'conditions'       => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'description'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
-      'seller'           => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'created_at'       => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'updated_at'       => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
     ));
@@ -53,7 +52,6 @@ abstract class BaseDealFormFilter extends BaseFormFilterDoctrine
       'featured'         => new sfValidatorPass(array('required' => false)),
       'conditions'       => new sfValidatorPass(array('required' => false)),
       'description'      => new sfValidatorPass(array('required' => false)),
-      'seller'           => new sfValidatorPass(array('required' => false)),
       'created_at'       => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'updated_at'       => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
     ));
@@ -93,7 +91,6 @@ abstract class BaseDealFormFilter extends BaseFormFilterDoctrine
       'featured'         => 'Text',
       'conditions'       => 'Text',
       'description'      => 'Text',
-      'seller'           => 'Text',
       'created_at'       => 'Date',
       'updated_at'       => 'Date',
     );

@@ -22,7 +22,6 @@
  * @property string $featured
  * @property string $conditions
  * @property string $description
- * @property string $seller
  * @property Category $Category
  * @property Seller $Seller
  * @property Store $Store
@@ -45,7 +44,6 @@
  * @method string              getFeatured()         Returns the current record's "featured" value
  * @method string              getConditions()       Returns the current record's "conditions" value
  * @method string              getDescription()      Returns the current record's "description" value
- * @method string              getSeller()           Returns the current record's "seller" value
  * @method Category            getCategory()         Returns the current record's "Category" value
  * @method Seller              getSeller()           Returns the current record's "Seller" value
  * @method Store               getStore()            Returns the current record's "Store" value
@@ -67,7 +65,6 @@
  * @method Deal                setFeatured()         Sets the current record's "featured" value
  * @method Deal                setConditions()       Sets the current record's "conditions" value
  * @method Deal                setDescription()      Sets the current record's "description" value
- * @method Deal                setSeller()           Sets the current record's "seller" value
  * @method Deal                setCategory()         Sets the current record's "Category" value
  * @method Deal                setSeller()           Sets the current record's "Seller" value
  * @method Deal                setStore()            Sets the current record's "Store" value
@@ -153,11 +150,6 @@ abstract class BaseDeal extends sfDoctrineRecord
              'type' => 'string',
              'notnull' => true,
              'length' => '4000',
-             ));
-        $this->hasColumn('seller', 'string', 255, array(
-             'type' => 'string',
-             'notnull' => true,
-             'length' => '255',
              ));
     }
 

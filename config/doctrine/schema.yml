@@ -38,7 +38,6 @@ Deal:
     featured: { type: string(4000), notnull: true }
     conditions: { type: string(4000), notnull: true }
     description:  { type: string(4000), notnull: true }
-    seller:  { type: string(255), notnull: true }
 
 
 
