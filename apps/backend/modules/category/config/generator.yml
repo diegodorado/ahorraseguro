@@ -14,9 +14,18 @@ generator:
 
     config:
       actions: ~
-      fields:  ~
-      list:    ~
-      filter:  ~
+      fields:
+        name: { label: "Nombre" }
+      list:
+        title: Listado de Categorías
+        display: [name]
+      filter: 
+        display: [name]
+
       form:    ~
-      edit:    ~
-      new:     ~
+      edit:
+        title: Editar Categoría
+      
+      new:
+        title: Nueva Categoría
+      

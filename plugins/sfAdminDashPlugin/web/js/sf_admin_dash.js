@@ -7,10 +7,10 @@ jQuery(function() {
   if (jQuery('#sf_admin_bar').size()) {
     var filter_width = jQuery('#sf_admin_bar').width() + 25;
 
-    jQuery('.sf_admin_list').css('padding-right', filter_width);
+    jQuery('#sf_admin_content').css('padding-right', filter_width);
 
     //add filter header
-    jQuery('#sf_admin_bar table tbody').before("<thead><tr><th colspan='2'>Filters</th></tr></thead>");
+    jQuery('#sf_admin_bar table tbody').before("<thead><tr><th colspan='2'>Filtros</th></tr></thead>");
   }
 });
 

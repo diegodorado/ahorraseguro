@@ -13,6 +13,10 @@
 class Deal extends BaseDeal
 {
 
+  function __toString() {
+    return substr($this->getTitle(), 0, 30).'...' ;
+  } 
+
   function increaseBought() {
     $this->setBoughtCount($this->getBoughtCount()+1);
     $this->save();

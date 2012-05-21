@@ -16,7 +16,24 @@ generator:
       actions: ~
 
       fields:
-        description: {params: cols=500}
+        type: { label: "Tipo" }
+        category_id: { label: "Categoría" }
+        store_id: { label: "Comercio" }
+        seller_id: { label: "Vendedor" }
+        title: { label: "Titulo" }
+        newsletter_title: { label: "Titulo para Newsletter" }
+        description: { label: "Descripción" ,params: cols=500}
+        featured: { label: "Destacado" }
+        conditions: { label: "Condiciones" }
+        starts_at: { label: "Empieza" }
+        ends_at: { label: "Termina" }
+        image: { label: "Imagen" }
+        offer: { label: "Porcentaje" }
+        real_value: { label: "Valor Real" }
+        bought_count: { label: "Cantidad comprada" }
+        visited_count: { label: "Cantidad de visitas" }
+        printed_count: { label: "Cantidad impresa" }
+        
       list:
         title: Listado de Ofertas
         layout: stacked
@@ -40,5 +57,9 @@ generator:
           Media: [image]
           Precios: [offer, real_value]
           Estadisticas: [bought_count, visited_count, printed_count]
-      edit:    ~
-      new:     ~
+      edit:
+        title: Editar Oferta
+      
+      new:
+        title: Nueva Oferta
+

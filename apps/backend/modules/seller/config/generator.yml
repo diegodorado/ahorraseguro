@@ -14,9 +14,23 @@ generator:
 
     config:
       actions: ~
-      fields:  ~
-      list:    ~
-      filter:  ~
+      fields:
+        first_name: { label: "Nombre" }
+        last_name: { label: "Apellido" }
+        phone: { label: "Teléfono" }
+        cel_phone: { label: "Celular" }
+        address: { label: "Domicilio" }
+        percent: { label: "Porcentaje" }
+      list:
+        title: Listado de Vendedores
+        display: [first_name, last_name]
+      filter: 
+        display: [first_name, last_name]
+
       form:    ~
-      edit:    ~
-      new:     ~
+      edit:
+        title: Editar Vendedor
+      
+      new:
+        title: Nuevo Vendedor
+      

@@ -8,6 +8,23 @@ Category:
 Store:
   columns:
     name: { type: string(255), notnull: true, unique: true }
+    trading_name: { type: string(255)}
+    address: { type: string(255)}
+    city: { type: string(255)}
+    province: { type: string(255)}
+    phone: { type: string(255)}
+    quarter: { type: string(255)}
+    email: { type: string(255)}
+    web: { type: string(255)}
+    salesman_and_position: { type: string(255)}
+    cuit: { type: string(255)}
+    condicion_iva:
+      type: enum
+      values: [RI, Exento, Monotributista]]
+    bank: { type: string(255)}
+    bank_account: { type: string(255)}
+    bank_cbu: { type: string(255)}
+
 
 Seller:
   columns:

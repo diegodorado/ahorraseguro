@@ -14,9 +14,32 @@ generator:
 
     config:
       actions: ~
-      fields:  ~
-      list:    ~
-      filter:  ~
+      fields:
+        name: { label: "Razón Social" }
+        trading_name: { label: "Nombre de Fantasía" }
+        address: { label: "Domicilio Comercial" }
+        city: { label: "Localidad" }
+        province: { label: "Provincia" }
+        phone: { label: "Teléfono" }
+        quarter: { label: "Barrio" }
+        email: { label: "Correo Electrónico" }
+        web: { label: "Sitio Web" }
+        salesman_and_position: { label: "Representante/cargo" }
+        cuit: { label: "CUIT" }
+        condicion_iva: { label: "Condicion frente al IVA" }
+        bank: { label: "Banco" }
+        bank_account: { label: "Nro de Cuenta" }
+        bank_cbu: { label: "CBU" }
+      list:
+        title: Listado de Comercios
+        display: [name, trading_name, cuit, condicion_iva]
+      filter: 
+        display: [name, trading_name, cuit, condicion_iva]
+
       form:    ~
-      edit:    ~
-      new:     ~
+      edit:
+        title: Editar Comercio
+      
+      new:
+        title: Nuevo Comercio
+      
