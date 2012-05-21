@@ -26,3 +26,13 @@ after "deploy:finalize_update" do
   run "chmod 644 #{latest_release}/web/*.php"
   #run "sudo chmod -R 777 #{latest_release}/#{cache_path}"
 end
+
+
+namespace :log do
+  task :show do
+    run <<-CMD
+      tail -n20 #{shared_path}/logs/*.log
+    CMD
+  end
+end
+
