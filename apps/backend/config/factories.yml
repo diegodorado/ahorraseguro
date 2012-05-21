@@ -3,10 +3,21 @@
 
 prod:
   logger:
-    class: sfFileLogger
+    class: sfAggregateLogger  
     param:
-      level: error
-      file:  %SF_LOG_DIR%/%SF_APP%_%SF_ENVIRONMENT%.log
+      level: debug
+      loggers:
+        sf_file_debug:
+          class: sfFileLogger
+          param:
+            level: debug
+            file: %SF_LOG_DIR%/%SF_APP%_%SF_ENVIRONMENT%_debug.log
+        sf_file_err:
+          class: sfFileLogger
+          param:
+            level: err
+            file: %SF_LOG_DIR%/%SF_APP%_%SF_ENVIRONMENT%_error.log     
+
     
 test:
   storage:

@@ -28,11 +28,24 @@ after "deploy:finalize_update" do
 end
 
 
-namespace :log do
-  task :show do
-    run <<-CMD
-      tail -n20 #{shared_path}/logs/*.log
-    CMD
+namespace :logs do
+  task :debug do
+    puts capture("tail -n20 #{shared_path}/log/*_prod_debug.log")
+  end
+  task :error do
+    puts capture("tail -n20 #{shared_path}/log/*_prod_debug.log")
+  end
+  task :all do
+    puts capture("tail -n30 #{shared_path}/log/*prod*.log")
+  end
+end
+
+namespace :apache do
+  task :logs do
+    puts capture("tail -n20 /opt/apache/logs/error_log")
+  end
+  task :restart do
+    puts capture("service httpd restart")
   end
 end
 
