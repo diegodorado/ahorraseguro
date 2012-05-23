@@ -12,6 +12,7 @@
  * @property string $province
  * @property string $phone
  * @property string $quarter
+ * @property integer $quarter_id
  * @property string $email
  * @property string $web
  * @property string $salesman_and_position
@@ -20,6 +21,7 @@
  * @property string $bank
  * @property string $bank_account
  * @property string $bank_cbu
+ * @property Quarter $Quarter
  * @property Doctrine_Collection $Deal
  * 
  * @method string              getName()                  Returns the current record's "name" value
@@ -29,6 +31,7 @@
  * @method string              getProvince()              Returns the current record's "province" value
  * @method string              getPhone()                 Returns the current record's "phone" value
  * @method string              getQuarter()               Returns the current record's "quarter" value
+ * @method integer             getQuarterId()             Returns the current record's "quarter_id" value
  * @method string              getEmail()                 Returns the current record's "email" value
  * @method string              getWeb()                   Returns the current record's "web" value
  * @method string              getSalesmanAndPosition()   Returns the current record's "salesman_and_position" value
@@ -37,6 +40,7 @@
  * @method string              getBank()                  Returns the current record's "bank" value
  * @method string              getBankAccount()           Returns the current record's "bank_account" value
  * @method string              getBankCbu()               Returns the current record's "bank_cbu" value
+ * @method Quarter             getQuarter()               Returns the current record's "Quarter" value
  * @method Doctrine_Collection getDeal()                  Returns the current record's "Deal" collection
  * @method Store               setName()                  Sets the current record's "name" value
  * @method Store               setTradingName()           Sets the current record's "trading_name" value
@@ -45,6 +49,7 @@
  * @method Store               setProvince()              Sets the current record's "province" value
  * @method Store               setPhone()                 Sets the current record's "phone" value
  * @method Store               setQuarter()               Sets the current record's "quarter" value
+ * @method Store               setQuarterId()             Sets the current record's "quarter_id" value
  * @method Store               setEmail()                 Sets the current record's "email" value
  * @method Store               setWeb()                   Sets the current record's "web" value
  * @method Store               setSalesmanAndPosition()   Sets the current record's "salesman_and_position" value
@@ -53,6 +58,7 @@
  * @method Store               setBank()                  Sets the current record's "bank" value
  * @method Store               setBankAccount()           Sets the current record's "bank_account" value
  * @method Store               setBankCbu()               Sets the current record's "bank_cbu" value
+ * @method Store               setQuarter()               Sets the current record's "Quarter" value
  * @method Store               setDeal()                  Sets the current record's "Deal" collection
  * 
  * @package    mendozaoferta
@@ -94,6 +100,10 @@ abstract class BaseStore extends sfDoctrineRecord
         $this->hasColumn('quarter', 'string', 255, array(
              'type' => 'string',
              'length' => '255',
+             ));
+        $this->hasColumn('quarter_id', 'integer', 8, array(
+             'type' => 'integer',
+             'length' => 8,
              ));
         $this->hasColumn('email', 'string', 255, array(
              'type' => 'string',
@@ -137,6 +147,10 @@ abstract class BaseStore extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
+        $this->hasOne('Quarter', array(
+             'local' => 'quarter_id',
+             'foreign' => 'id'));
+
         $this->hasMany('Deal', array(
              'local' => 'id',
              'foreign' => 'store_id'));

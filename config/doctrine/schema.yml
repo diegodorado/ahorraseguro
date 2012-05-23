@@ -5,6 +5,10 @@ Category:
     name: { type: string(255), notnull: true, unique: true }
  
 
+Quarter:
+  columns:
+    name: { type: string(255), notnull: true, unique: true }
+
 Store:
   columns:
     name: { type: string(255), notnull: true, unique: true }
@@ -14,6 +18,7 @@ Store:
     province: { type: string(255)}
     phone: { type: string(255)}
     quarter: { type: string(255)}
+    quarter_id:  { type: integer}
     email: { type: string(255)}
     web: { type: string(255)}
     salesman_and_position: { type: string(255)}
