@@ -22,6 +22,9 @@ all:
           Categorias:
             url:    category
             image:        addedit.png
+          Barrios:
+            url:    quarter
+            image:        addedit.png
           Ofertas:
             url:    deal
             image:        addedit.png

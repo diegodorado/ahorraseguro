@@ -21,7 +21,8 @@ generator:
         city: { label: "Localidad" }
         province: { label: "Provincia" }
         phone: { label: "Teléfono" }
-        quarter: { label: "Barrio" }
+        quarter: { label: "Barrio (obsoleto)", params: disabled=false, help: "Solo de referencia. Este campo se eliminará. Utilice el siguiente para indicar barrio." }
+        quarter_id: { label: "Barrio" }
         email: { label: "Correo Electrónico" }
         web: { label: "Sitio Web" }
         salesman_and_position: { label: "Representante/cargo" }

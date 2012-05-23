@@ -1,0 +1,31 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           quarter
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          quarter
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+    css:                   nothing   #setting the css to a placeholder 
+
+    config:
+      actions: ~
+      fields:
+        name: { label: "Nombre" }
+      list:
+        title: Listado de Barrios
+        display: [name]
+      filter: 
+        display: [name]
+
+      form:    ~
+      edit:
+        title: Editar Barrio
+      
+      new:
+        title: Nueva Barrio
+      

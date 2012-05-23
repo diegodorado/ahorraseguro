@@ -1,3 +1,12 @@
+quarter:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                quarter
+    module:               quarter
+    prefix_path:          /quarter
+    column:               id
+    with_wildcard_routes: true
+
 store:
   class: sfDoctrineRouteCollection
   options:
