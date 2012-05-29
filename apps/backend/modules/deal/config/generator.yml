@@ -20,6 +20,7 @@ generator:
         has_yapa: { label: "Tiene Yapa?" }
         category_id: { label: "Categoría" }
         store_id: { label: "Comercio" }
+        quarter_id: { label: "Barrio" }
         seller_id: { label: "Vendedor" }
         title: { label: "Titulo" }
         newsletter_title: { label: "Titulo para Newsletter" }
