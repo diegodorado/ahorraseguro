@@ -41,18 +41,18 @@ class Deal extends BaseDeal
   } 
 
   function isOpen() {
-    return ($this->getDateTimeObject('ends_at')->getTimestamp() - time())>0;
+    return ($this->getTargetTime() - time())>0;
+  } 
+
+
+  function isPromo() {
+    return false;
   } 
 
   function getTargetTime() {
     return $this->getDateTimeObject('ends_at')->getTimestamp();
   } 
 
-
-
-  function isPromo() {
-    return $this->getType()=='P';
-  } 
 
   function getThumb($size='s') {
     if ($size == 's'){$w=80;$h=80;}

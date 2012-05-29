@@ -7,11 +7,14 @@
  * 
  * @property string $name
  * @property Doctrine_Collection $Store
+ * @property Doctrine_Collection $Deal
  * 
  * @method string              getName()  Returns the current record's "name" value
  * @method Doctrine_Collection getStore() Returns the current record's "Store" collection
+ * @method Doctrine_Collection getDeal()  Returns the current record's "Deal" collection
  * @method Quarter             setName()  Sets the current record's "name" value
  * @method Quarter             setStore() Sets the current record's "Store" collection
+ * @method Quarter             setDeal()  Sets the current record's "Deal" collection
  * 
  * @package    mendozaoferta
  * @subpackage model
@@ -35,6 +38,10 @@ abstract class BaseQuarter extends sfDoctrineRecord
     {
         parent::setUp();
         $this->hasMany('Store', array(
+             'local' => 'id',
+             'foreign' => 'quarter_id'));
+
+        $this->hasMany('Deal', array(
              'local' => 'id',
              'foreign' => 'quarter_id'));
     }

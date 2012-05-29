@@ -16,10 +16,12 @@ abstract class BaseDealForm extends BaseFormDoctrine
   {
     $this->setWidgets(array(
       'id'               => new sfWidgetFormInputHidden(),
-      'type'             => new sfWidgetFormInputText(),
+      'is_oferton'       => new sfWidgetFormInputCheckbox(),
+      'has_yapa'         => new sfWidgetFormInputCheckbox(),
       'category_id'      => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Category'), 'add_empty' => true)),
       'seller_id'        => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Seller'), 'add_empty' => true)),
       'store_id'         => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Store'), 'add_empty' => true)),
+      'quarter_id'       => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Quarter'), 'add_empty' => true)),
       'starts_at'        => new sfWidgetFormDateTime(),
       'ends_at'          => new sfWidgetFormDateTime(),
       'bought_count'     => new sfWidgetFormInputText(),
@@ -33,16 +35,20 @@ abstract class BaseDealForm extends BaseFormDoctrine
       'featured'         => new sfWidgetFormTextarea(),
       'conditions'       => new sfWidgetFormTextarea(),
       'description'      => new sfWidgetFormTextarea(),
+      'max_per_buy'      => new sfWidgetFormInputText(),
+      'max_deals'        => new sfWidgetFormInputText(),
       'created_at'       => new sfWidgetFormDateTime(),
       'updated_at'       => new sfWidgetFormDateTime(),
     ));
 
     $this->setValidators(array(
       'id'               => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'id', 'required' => false)),
-      'type'             => new sfValidatorString(array('max_length' => 1)),
+      'is_oferton'       => new sfValidatorBoolean(array('required' => false)),
+      'has_yapa'         => new sfValidatorBoolean(array('required' => false)),
       'category_id'      => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Category'), 'required' => false)),
       'seller_id'        => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Seller'), 'required' => false)),
       'store_id'         => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Store'), 'required' => false)),
+      'quarter_id'       => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Quarter'), 'required' => false)),
       'starts_at'        => new sfValidatorDateTime(),
       'ends_at'          => new sfValidatorDateTime(),
       'bought_count'     => new sfValidatorInteger(),
@@ -56,6 +62,8 @@ abstract class BaseDealForm extends BaseFormDoctrine
       'featured'         => new sfValidatorString(array('max_length' => 4000)),
       'conditions'       => new sfValidatorString(array('max_length' => 4000)),
       'description'      => new sfValidatorString(array('max_length' => 4000)),
+      'max_per_buy'      => new sfValidatorInteger(array('required' => false)),
+      'max_deals'        => new sfValidatorInteger(array('required' => false)),
       'created_at'       => new sfValidatorDateTime(),
       'updated_at'       => new sfValidatorDateTime(),
     ));

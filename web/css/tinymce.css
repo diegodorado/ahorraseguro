@@ -1,4 +1,4 @@
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/\.rvm\/gems\/ruby-1\.9\.2-p290\@rails-3\.1\.1\/gems\/compass-0\.12\.alpha\.0\/frameworks\/compass\/stylesheets\/compass\/reset\/_utilities\.scss}line{font-family:\0000317}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/\.rvm\/gems\/ruby-1\.9\.2-p290\@rails-3\.1\.1\/gems\/compass-0\.12\.1\/frameworks\/compass\/stylesheets\/compass\/reset\/_utilities\.scss}line{font-family:\0000317}}
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -20,50 +20,50 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/\.rvm\/gems\/ruby-1\.9\.2-p290\@rails-3\.1\.1\/gems\/compass-0\.12\.alpha\.0\/frameworks\/compass\/stylesheets\/compass\/reset\/_utilities\.scss}line{font-family:\0000320}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/\.rvm\/gems\/ruby-1\.9\.2-p290\@rails-3\.1\.1\/gems\/compass-0\.12\.1\/frameworks\/compass\/stylesheets\/compass\/reset\/_utilities\.scss}line{font-family:\0000320}}
 body {
   line-height: 1;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/\.rvm\/gems\/ruby-1\.9\.2-p290\@rails-3\.1\.1\/gems\/compass-0\.12\.alpha\.0\/frameworks\/compass\/stylesheets\/compass\/reset\/_utilities\.scss}line{font-family:\0000322}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/\.rvm\/gems\/ruby-1\.9\.2-p290\@rails-3\.1\.1\/gems\/compass-0\.12\.1\/frameworks\/compass\/stylesheets\/compass\/reset\/_utilities\.scss}line{font-family:\0000322}}
 ol, ul {
   list-style: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/\.rvm\/gems\/ruby-1\.9\.2-p290\@rails-3\.1\.1\/gems\/compass-0\.12\.alpha\.0\/frameworks\/compass\/stylesheets\/compass\/reset\/_utilities\.scss}line{font-family:\0000324}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/\.rvm\/gems\/ruby-1\.9\.2-p290\@rails-3\.1\.1\/gems\/compass-0\.12\.1\/frameworks\/compass\/stylesheets\/compass\/reset\/_utilities\.scss}line{font-family:\0000324}}
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/\.rvm\/gems\/ruby-1\.9\.2-p290\@rails-3\.1\.1\/gems\/compass-0\.12\.alpha\.0\/frameworks\/compass\/stylesheets\/compass\/reset\/_utilities\.scss}line{font-family:\0000326}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/\.rvm\/gems\/ruby-1\.9\.2-p290\@rails-3\.1\.1\/gems\/compass-0\.12\.1\/frameworks\/compass\/stylesheets\/compass\/reset\/_utilities\.scss}line{font-family:\0000326}}
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/\.rvm\/gems\/ruby-1\.9\.2-p290\@rails-3\.1\.1\/gems\/compass-0\.12\.alpha\.0\/frameworks\/compass\/stylesheets\/compass\/reset\/_utilities\.scss}line{font-family:\0000328}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/\.rvm\/gems\/ruby-1\.9\.2-p290\@rails-3\.1\.1\/gems\/compass-0\.12\.1\/frameworks\/compass\/stylesheets\/compass\/reset\/_utilities\.scss}line{font-family:\0000328}}
 q, blockquote {
   quotes: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/\.rvm\/gems\/ruby-1\.9\.2-p290\@rails-3\.1\.1\/gems\/compass-0\.12\.alpha\.0\/frameworks\/compass\/stylesheets\/compass\/reset\/_utilities\.scss}line{font-family:\00003101}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/\.rvm\/gems\/ruby-1\.9\.2-p290\@rails-3\.1\.1\/gems\/compass-0\.12\.1\/frameworks\/compass\/stylesheets\/compass\/reset\/_utilities\.scss}line{font-family:\00003101}}
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/\.rvm\/gems\/ruby-1\.9\.2-p290\@rails-3\.1\.1\/gems\/compass-0\.12\.alpha\.0\/frameworks\/compass\/stylesheets\/compass\/reset\/_utilities\.scss}line{font-family:\0000330}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/\.rvm\/gems\/ruby-1\.9\.2-p290\@rails-3\.1\.1\/gems\/compass-0\.12\.1\/frameworks\/compass\/stylesheets\/compass\/reset\/_utilities\.scss}line{font-family:\0000330}}
 a img {
   border: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/\.rvm\/gems\/ruby-1\.9\.2-p290\@rails-3\.1\.1\/gems\/compass-0\.12\.alpha\.0\/frameworks\/compass\/stylesheets\/compass\/reset\/_utilities\.scss}line{font-family:\00003114}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/\.rvm\/gems\/ruby-1\.9\.2-p290\@rails-3\.1\.1\/gems\/compass-0\.12\.1\/frameworks\/compass\/stylesheets\/compass\/reset\/_utilities\.scss}line{font-family:\00003114}}
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/mendozaoferta\/data\/sass\/tinymce\.sass}line{font-family:\000034}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/tinymce\.sass}line{font-family:\000034}}
 body {
   font-family: arial;
   font-size: 12px;
@@ -71,16 +71,16 @@ body {
   padding: 10px;
   color: #484848;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/mendozaoferta\/data\/sass\/tinymce\.sass}line{font-family:\0000311}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/tinymce\.sass}line{font-family:\0000311}}
 body ul {
   list-style: disc outside none;
   padding-left: 14px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/mendozaoferta\/data\/sass\/tinymce\.sass}line{font-family:\0000315}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/tinymce\.sass}line{font-family:\0000315}}
 body p {
   margin: 5px 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/mendozaoferta\/data\/sass\/tinymce\.sass}line{font-family:\0000319}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/tinymce\.sass}line{font-family:\0000319}}
 body strong {
   font-weight: bold;
 }

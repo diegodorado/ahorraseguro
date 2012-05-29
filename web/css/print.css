@@ -1,49 +1,49 @@
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/mendozaoferta\/data\/sass\/print\.sass}line{font-family:\000033}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/print\.sass}line{font-family:\000033}}
 body.promo_show {
   font-family: Arial;
   font-size: 12px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/mendozaoferta\/data\/sass\/print\.sass}line{font-family:\000036}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/print\.sass}line{font-family:\000036}}
 body.promo_show #foc, body.promo_show #header, body.promo_show .right_column, body.promo_show .deal_show_left, body.promo_show #sfWebDebug {
   display: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/mendozaoferta\/data\/sass\/print\.sass}line{font-family:\000038}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/print\.sass}line{font-family:\000038}}
 body.promo_show #content {
   border: 1px solid #cccccc;
   width: 430px;
   margin: 0 auto;
   text-align: center;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/mendozaoferta\/data\/sass\/print\.sass}line{font-family:\0000313}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/print\.sass}line{font-family:\0000313}}
 body.promo_show #content h1 {
   font-size: 16px;
   font-weight: normal;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/mendozaoferta\/data\/sass\/print\.sass}line{font-family:\0000316}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/print\.sass}line{font-family:\0000316}}
 body.promo_show .promo_deal {
   border-bottom: 1px dashed #cccccc;
   padding-bottom: 20px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/mendozaoferta\/data\/sass\/print\.sass}line{font-family:\0000319}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/print\.sass}line{font-family:\0000319}}
 body.promo_show .deal_show_bottom {
   border-bottom: 1px dashed #cccccc;
   padding: 20px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/mendozaoferta\/data\/sass\/print\.sass}line{font-family:\0000322}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/print\.sass}line{font-family:\0000322}}
 body.promo_show .print_bottom {
   padding: 20px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/mendozaoferta\/data\/sass\/print\.sass}line{font-family:\0000325}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/print\.sass}line{font-family:\0000325}}
 body.user {
   font-family: Arial;
   font-size: 12px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/mendozaoferta\/data\/sass\/print\.sass}line{font-family:\0000328}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/print\.sass}line{font-family:\0000328}}
 body.user #foc, body.user #header, body.user .right_column, body.user .deal_show_left, body.user #sfWebDebug, body.user .print_box, body.user h1, body.user .profile_submenu, body.user .user_deals li {
   display: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/mendozaoferta\/data\/sass\/print\.sass}line{font-family:\0000330}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/print\.sass}line{font-family:\0000330}}
 body.user #content {
   border: 1px solid #cccccc;
   width: 500px;
@@ -51,32 +51,32 @@ body.user #content {
   text-align: center;
   padding-bottom: 10px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/mendozaoferta\/data\/sass\/print\.sass}line{font-family:\0000336}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/print\.sass}line{font-family:\0000336}}
 body.user #content .user_deals {
   margin: 0;
   padding: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/mendozaoferta\/data\/sass\/print\.sass}line{font-family:\0000339}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/print\.sass}line{font-family:\0000339}}
 body.user #content .user_deals li.print {
   display: block;
   overflow: hidden;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/mendozaoferta\/data\/sass\/print\.sass}line{font-family:\0000342}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/print\.sass}line{font-family:\0000342}}
 body.user #content .user_deals li.print h3 {
   margin-bottom: 8px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/mendozaoferta\/data\/sass\/print\.sass}line{font-family:\0000344}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/print\.sass}line{font-family:\0000344}}
 body.user #content .user_deals li.print h3 a {
   font-size: 18px;
   font-weight: bold;
   color: black;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/mendozaoferta\/data\/sass\/print\.sass}line{font-family:\0000348}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/print\.sass}line{font-family:\0000348}}
 body.user #content .user_deals li.print img {
   float: left;
   margin: 0 10px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/mendozaoferta\/data\/sass\/print\.sass}line{font-family:\0000351}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/print\.sass}line{font-family:\0000351}}
 body.user #content .user_deals li.print .deal_buy_box {
   border: 1px solid #cccccc;
   float: left;
@@ -84,13 +84,13 @@ body.user #content .user_deals li.print .deal_buy_box {
   height: 80px;
   padding: 0 15px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/mendozaoferta\/data\/sass\/print\.sass}line{font-family:\0000357}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/print\.sass}line{font-family:\0000357}}
 body.user #content .user_deals li.print .deal_buy_box .bought {
   margin: 7px;
   font-size: 22px;
   font-weight: bold;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/mendozaoferta\/data\/sass\/print\.sass}line{font-family:\0000361}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/print\.sass}line{font-family:\0000361}}
 body.user #content .user_deals li.print .code_box {
   float: left;
   margin-right: 10px;
@@ -99,7 +99,7 @@ body.user #content .user_deals li.print .code_box {
   border: 1px solid #cccccc;
   text-align: center;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/mendozaoferta\/data\/sass\/print\.sass}line{font-family:\0000368}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/print\.sass}line{font-family:\0000368}}
 body.user #content .user_deals li.print .code_box .code {
   font-size: 32px;
   font-weight: bold;

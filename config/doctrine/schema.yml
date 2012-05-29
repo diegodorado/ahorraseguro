@@ -17,7 +17,6 @@ Store:
     city: { type: string(255)}
     province: { type: string(255)}
     phone: { type: string(255)}
-    quarter: { type: string(255)}
     quarter_id:  { type: integer}
     email: { type: string(255)}
     web: { type: string(255)}
@@ -43,10 +42,12 @@ Seller:
 Deal:
   actAs: { Timestampable: ~ }
   columns:
-    type:         { type: string(1), notnull: true }
+    is_oferton: { type: boolean,   default: 0}
+    has_yapa: { type: boolean,   default: 0}
     category_id:  { type: integer }
     seller_id:  { type: integer}
     store_id:  { type: integer}
+    quarter_id:  { type: integer}
     starts_at:   { type: timestamp, notnull: true }
     ends_at:   { type: timestamp, notnull: true }
     bought_count:   { type: integer, notnull: true }
@@ -60,7 +61,9 @@ Deal:
     featured: { type: string(4000), notnull: true }
     conditions: { type: string(4000), notnull: true }
     description:  { type: string(4000), notnull: true }
-
+    max_per_buy: integer
+    max_deals: integer
+    
 
 
 Payment:

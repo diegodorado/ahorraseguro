@@ -16,13 +16,14 @@ generator:
       actions: ~
 
       fields:
-        type: { label: "Tipo" }
+        is_oferton: { label: "Es un Ofertón?" }
+        has_yapa: { label: "Tiene Yapa?" }
         category_id: { label: "Categoría" }
         store_id: { label: "Comercio" }
         seller_id: { label: "Vendedor" }
         title: { label: "Titulo" }
         newsletter_title: { label: "Titulo para Newsletter" }
-        description: { label: "Descripción" ,params: cols=500}
+        description: { label: "Descripción" }
         featured: { label: "Destacado" }
         conditions: { label: "Condiciones" }
         starts_at: { label: "Empieza" }
@@ -33,6 +34,9 @@ generator:
         bought_count: { label: "Cantidad comprada" }
         visited_count: { label: "Cantidad de visitas" }
         printed_count: { label: "Cantidad impresa" }
+        max_per_buy: { label: "Cantidad máxima por compra", help: "Dejar en blanco si no hay límite" }
+        max_deals: { label: "Cantidad máxima de ofertas", help: "Dejar en blanco si no hay límite"  }
+
         
       list:
         title: Listado de Ofertas
@@ -48,15 +52,15 @@ generator:
           _delete: ~
           payments: {label: Operaciones, action: payments}
       filter:
-        display: [active,type, category_id, title]
+        display: [active, category_id, title]
       form:
         display:
-          General: [type, category_id, store_id, seller_id, title, newsletter_title]
+          General: [ is_oferton, has_yapa, category_id, store_id, quarter_id, seller_id, title, newsletter_title]
           Contenido: [description, featured, conditions]
           Fechas: [starts_at, ends_at]
           Media: [image]
-          Precios: [offer, real_value]
-          Estadisticas: [bought_count, visited_count, printed_count]
+          Precios: [_offer, real_value]
+          Parámetros: [max_per_buy, max_deals, bought_count, visited_count, printed_count]
       edit:
         title: Editar Oferta
       

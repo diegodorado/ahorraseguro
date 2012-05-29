@@ -6,11 +6,6 @@ class DealTable extends Doctrine_Table
   private static $random_excluded_category_id = null;
   private static $random_left_ids = null;
   private static $random_right_ids = null;
-  public static $types = array(
-    'O' => 'Oferton',
-    'D' => 'Descuento',
-    'P' => 'Promocion',
-  );
 
   private static function getRandomLeftIds()
   {
@@ -63,14 +58,14 @@ class DealTable extends Doctrine_Table
 
   private static function setRandomIds()
   {
-    sfContext::getInstance()->getLogger()->debug( 'self::getRandomExcludedCategoryId().'.var_export(self::getRandomExcludedCategoryId(),true) );
+    //sfContext::getInstance()->getLogger()->debug( 'self::getRandomExcludedCategoryId().'.var_export(self::getRandomExcludedCategoryId(),true) );
 
     $q = Doctrine_Query::create()
       ->select('d.id, RANDOM() AS rand')
       ->from('Deal d')
       ->where('d.starts_at < ?', date('Y-m-d H:i:s', time()))
       ->andWhere('d.ends_at > ?', date('Y-m-d H:i:s', time()))
-      ->andWhere('d.type = ?', self::getRandomType())
+      //->andWhere('d.type = ?', self::getRandomType())
       ->orderby('rand')
       ->limit(11);
     if(self::getRandomExcludedCategoryId()){
@@ -90,7 +85,7 @@ class DealTable extends Doctrine_Table
     $q = $this->createQuery('d')
       ->where('d.starts_at < ?', date('Y-m-d H:i:s', time()))
       ->andWhere('d.ends_at > ?', date('Y-m-d H:i:s', time()))
-      ->andWhere('d.type = ?', 'O')
+      //->andWhere('d.type = ?', 'O')
       ->orderBy('d.starts_at ASC');
     return $q->execute();
   }
@@ -99,7 +94,7 @@ class DealTable extends Doctrine_Table
   {
     $q = $this->createQuery('d')
       ->andWhere('d.ends_at < ?', date('Y-m-d H:i:s', time()))
-      ->andWhere('d.type = ? OR d.type = ?', array('O','D'))
+      //->andWhere('d.type = ? OR d.type = ?', array('O','D'))
       ->orderBy('d.ends_at DESC');
     return $q->execute();
   }
@@ -127,7 +122,7 @@ class DealTable extends Doctrine_Table
     $q = $this->createQuery('d')
       ->where('d.starts_at < ?', date('Y-m-d H:i:s', time()))
       ->andWhere('d.ends_at > ?', date('Y-m-d H:i:s', time()))
-      ->andWhere('d.type = ?', 'D')
+      //->andWhere('d.type = ?', 'D')
       ->andWhere('d.category_id = ?', $id)
       ->orderBy('d.starts_at ASC');
     return $q->execute();
@@ -139,7 +134,7 @@ class DealTable extends Doctrine_Table
     $q = $this->createQuery('d')
       ->where('d.starts_at < ?', date('Y-m-d H:i:s', time()))
       ->andWhere('d.ends_at > ?', date('Y-m-d H:i:s', time()))
-      ->andWhere('d.type = ?', 'P')
+      //->andWhere('d.type = ?', 'P')
       ->andWhere('d.category_id = ?', $id)
       ->orderBy('d.starts_at ASC');
     return $q->execute();
@@ -153,7 +148,7 @@ class DealTable extends Doctrine_Table
     $q = $this->createQuery('d')
       ->where('d.starts_at < ?', date('Y-m-d H:i:s', time()))
       ->andWhere('d.ends_at > ?', date('Y-m-d H:i:s', time()))
-      ->andWhere('d.type = ?', 'P')
+      //->andWhere('d.type = ?', 'P')
       ->orderBy('d.starts_at ASC');
     return $q->execute();
   }
@@ -171,7 +166,7 @@ class DealTable extends Doctrine_Table
     $q = $this->createQuery('d')
       ->where('d.starts_at >= ?', date('Y-m-d H:i:s', mktime(0, 0, 0, date("m") , date("d")+0, date("Y"))))
       ->andWhere('d.ends_at < ?', date('Y-m-d H:i:s', mktime(0, 0, 0, date("m") , date("d")+1, date("Y"))))
-      ->andWhere('d.type = ?', 'O')
+      //->andWhere('d.type = ?', 'O')
       ->orderBy('d.starts_at ASC');
     return $q->execute();
   }
@@ -181,7 +176,7 @@ class DealTable extends Doctrine_Table
     $q = $this->createQuery('d')
        ->where('d.starts_at < ?', date('Y-m-d H:i:s', time()))
       ->andWhere('d.ends_at > ?', date('Y-m-d H:i:s', time()))
-      ->andWhere('d.type = ?', 'D')
+      //->andWhere('d.type = ?', 'D')
       ->orderby('rand()')
       ->limit(6);
     return $q->execute();

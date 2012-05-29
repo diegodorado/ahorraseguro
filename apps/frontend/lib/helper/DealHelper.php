@@ -9,7 +9,7 @@ function printed_count_text($deal){
 
 function bought_count_text($deal){
   $value= $deal->getBoughtCount();
-  $type = ($deal->getType()=='O')?'ofertón':'descuento';
+  $type = ($deal->getIsOferton())?'ofertón':'descuento';
   if($value==0 && !$deal->isOpen()){return 'No pierdas otra oportunidad!';}
   elseif($value==0){return sprintf('Este %s está activo',$type);}
   elseif($value==1){return '<strong>1</strong> persona ya compró!';}

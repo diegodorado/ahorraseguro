@@ -13,10 +13,12 @@ abstract class BaseDealFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'type'             => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'is_oferton'       => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
+      'has_yapa'         => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
       'category_id'      => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Category'), 'add_empty' => true)),
       'seller_id'        => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Seller'), 'add_empty' => true)),
       'store_id'         => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Store'), 'add_empty' => true)),
+      'quarter_id'       => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Quarter'), 'add_empty' => true)),
       'starts_at'        => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'ends_at'          => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'bought_count'     => new sfWidgetFormFilterInput(array('with_empty' => false)),
@@ -30,15 +32,19 @@ abstract class BaseDealFormFilter extends BaseFormFilterDoctrine
       'featured'         => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'conditions'       => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'description'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'max_per_buy'      => new sfWidgetFormFilterInput(),
+      'max_deals'        => new sfWidgetFormFilterInput(),
       'created_at'       => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'updated_at'       => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
     ));
 
     $this->setValidators(array(
-      'type'             => new sfValidatorPass(array('required' => false)),
+      'is_oferton'       => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
+      'has_yapa'         => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
       'category_id'      => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Category'), 'column' => 'id')),
       'seller_id'        => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Seller'), 'column' => 'id')),
       'store_id'         => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Store'), 'column' => 'id')),
+      'quarter_id'       => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Quarter'), 'column' => 'id')),
       'starts_at'        => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'ends_at'          => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'bought_count'     => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
@@ -52,6 +58,8 @@ abstract class BaseDealFormFilter extends BaseFormFilterDoctrine
       'featured'         => new sfValidatorPass(array('required' => false)),
       'conditions'       => new sfValidatorPass(array('required' => false)),
       'description'      => new sfValidatorPass(array('required' => false)),
+      'max_per_buy'      => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'max_deals'        => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'created_at'       => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'updated_at'       => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
     ));
@@ -74,10 +82,12 @@ abstract class BaseDealFormFilter extends BaseFormFilterDoctrine
   {
     return array(
       'id'               => 'Number',
-      'type'             => 'Text',
+      'is_oferton'       => 'Boolean',
+      'has_yapa'         => 'Boolean',
       'category_id'      => 'ForeignKey',
       'seller_id'        => 'ForeignKey',
       'store_id'         => 'ForeignKey',
+      'quarter_id'       => 'ForeignKey',
       'starts_at'        => 'Date',
       'ends_at'          => 'Date',
       'bought_count'     => 'Number',
@@ -91,6 +101,8 @@ abstract class BaseDealFormFilter extends BaseFormFilterDoctrine
       'featured'         => 'Text',
       'conditions'       => 'Text',
       'description'      => 'Text',
+      'max_per_buy'      => 'Number',
+      'max_deals'        => 'Number',
       'created_at'       => 'Date',
       'updated_at'       => 'Date',
     );

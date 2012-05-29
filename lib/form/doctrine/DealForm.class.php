@@ -19,14 +19,6 @@ class DealForm extends BaseDealForm
     $this->widgetSchema['title'] = new sfWidgetFormInputText(array(), array('style' => 'width:630px'));
     $this->widgetSchema['seller'] = new sfWidgetFormInputText(array(), array('style' => 'width:630px'));
     
-    $this->widgetSchema['type'] = new sfWidgetFormChoice(array(
-      'choices'  => DealTable::$types,
-      'expanded' => true,
-    ));
-    $this->validatorSchema['type'] = new sfValidatorChoice(array(
-      'choices' => array_keys(DealTable::$types),
-    ));    
-
     $this->widgetSchema['image'] = new sfWidgetFormInputFileEditable(array(
       'file_src'  => '/uploads/deals/'.$this->getObject()->getImage(),
       'is_image'  => true,

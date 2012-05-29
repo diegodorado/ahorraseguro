@@ -3,11 +3,11 @@
   <ul class="menu">
     <li><?=link_to('OFERTONES','@deals')?></li>
     <li>
-      <?=link_to('DESCUENTOS','@descuentos_category_list')?>
+      <?=link_to('OFERTAS','@descuentos_category_list')?>
       <?php include_component('deals', 'descuentosCategoryList') ?>
     </li>
     <li>
-      <?=link_to('PROMOCIONES','@promociones_category_list')?>
+      <?=link_to('YAPA','@promociones_category_list')?>
       <?php include_component('deals', 'promocionesCategoryList') ?>
     </li>
     <li><?=link_to('RECIENTES','@closed_deals')?></li>

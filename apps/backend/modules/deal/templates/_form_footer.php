@@ -18,35 +18,28 @@
 
 
     //handles type change
-    $("input:radio").change( function() {
-      toggle_type();
+    $("#deal_is_oferton").bind('change', function(event) {
+      if($(this).is(':checked')){
+        $('.sf_admin_form_field_has_yapa').hide();
+        $('.sf_admin_form_field_category_id').hide();
+      }else{
+        $('.sf_admin_form_field_has_yapa').show();
+        $('.sf_admin_form_field_category_id').show();
+      }
+    }).trigger('change');
+    
+    //get default store quarter.
+    $("#deal_store_id").bind('change', function(event) {
+		  $.post('/backend_dev.php/deal/json', {store_id: $(this).val()}, function(data){
+		    $("#deal_quarter_id").val(data.quarter_id);
+		  });
     });
-    
-    function toggle_type(){
-      var t=$('.radio_list input:checked').val();
 
-      $('.sf_admin_form_field_category_id').hide();
-      $('.sf_admin_form_field_bought_count').hide();
-      $('.sf_admin_form_field_printed_count').hide();
-      $('#sf_fieldset_precios').hide();
 
-      if(t=='O'){
-        $('.sf_admin_form_field_bought_count').show();
-        $('#sf_fieldset_precios').show();
-      }
-      if(t=='D'){
-        $('.sf_admin_form_field_category_id').show();
-        $('.sf_admin_form_field_bought_count').show();
-        $('#sf_fieldset_precios').show();
-      }
-      if(t=='P'){
-        $('.sf_admin_form_field_category_id').show();
-        $('.sf_admin_form_field_printed_count').show();
-      }
-    
-    }
 
-    toggle_type();
+
+
+
 
   });
 </script>

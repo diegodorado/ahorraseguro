@@ -14,7 +14,7 @@
 <?php end_slot() ?>
 
 <div class="content">
-  <h1>Ofertones</h1>
+  <h1>Ofertones de hoy</h1>
   <?php foreach($deals as $deal):?>
     <?include_partial('deals/deal',array('deal'=>$deal));?>
   <?php endforeach ?>

@@ -13,7 +13,7 @@ require_once dirname(__FILE__).'/../lib/dealGeneratorHelper.class.php';
  */
 class dealActions extends autoDealActions
 {
-  function executePayments(sfWebRequest $request) {
+  public function executePayments(sfWebRequest $request) {
 
     $deal = Doctrine_Core::getTable('Deal')->getDeal($request->getParameter('id'));
     $payments = Doctrine_Core::getTable('Payment')->getDealPayments($request->getParameter('id'));
@@ -32,5 +32,20 @@ class dealActions extends autoDealActions
   }
   
 
+
+  
+
+  public function executeJson(sfWebRequest $request)
+  {
+	  if($request->isXmlHttpRequest()){
+      $this->getResponse()->setHttpHeader('Content-type','application/json');
+ 		  $this->setLayout(false);
+
+      $store = Doctrine_Core::getTable('Store')->find($request->getParameter('store_id'));
+      $result = array('quarter_id'=>$store->getQuarterId());
+  	  return $this->renderText(json_encode($result));
+		
+	  }
+  }
   
 }
