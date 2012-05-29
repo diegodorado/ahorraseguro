@@ -30,7 +30,7 @@
     
     //get default store quarter.
     $("#deal_store_id").bind('change', function(event) {
-		  $.post('/backend_dev.php/deal/json', {store_id: $(this).val()}, function(data){
+		  $.post('/backend.php/deal/json', {store_id: $(this).val()}, function(data){
 		    $("#deal_quarter_id").val(data.quarter_id);
 		  });
     });
