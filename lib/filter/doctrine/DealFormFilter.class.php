@@ -22,15 +22,9 @@ class DealFormFilter extends BaseDealFormFilter
                     'required' => false,
                     'choices' => array(1, 0)));
                     
-    $this->widgetSchema['type'] = new sfWidgetFormChoice(array('choices'=>array_merge(array(''=>''),DealTable::$types)));
-    $this->validatorSchema['type'] = new sfValidatorChoice(array(
-                    'required' => false,
-      'choices' => array_keys(DealTable::$types),
-    ));
 
     $this->getWidgetSchema()->setLabels(array(
       'active' => 'Activa',
-      'type' => 'Tipo',
       'category_id' => 'Categoría',
       'title' => 'Titulo',
       'seller' => 'Vendedor',
@@ -38,12 +32,6 @@ class DealFormFilter extends BaseDealFormFilter
 
   }
 
-
-  protected function addTypeColumnQuery(Doctrine_Query $query, $field, $value)
-  {
-    $fieldName = $this->getFieldName($field);
-    $query->addWhere(sprintf("%s.%s = '%s'", $query->getRootAlias(), $fieldName, $value));
-  }
 
   protected function addActiveColumnQuery(Doctrine_Query $query, $field, $value)
   {
