@@ -29,7 +29,7 @@
             <tr>
               <td style="width: 240px;"><?=$deal->getTitle()?></td>
               <td>
-                <input type="text" id="quantity" value="1" maxlength="3" name="quantity" style="width:40px;">
+                <?=qty_input($deal)?>
               </td>
               <td>X</td>
               <td>$<?=$deal->getValue()?></td>
@@ -38,9 +38,7 @@
             </tr>
             <tr>
               <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td colspan="3"><?=qty_available($deal)?></td>
               <td></td>
               <td><input value="Pagar" class="submit" type="submit"></td>
             </tr>
@@ -52,7 +50,8 @@
 </div>
 
 <?page_js();?>
-  $('#quantity').bind('blur keypress keyup', function() {
+  $('#quantity').bind('blur keypress keyup', function(event) {
+    //return event.preventDefault();
     $('#total_amt').html(this.value*<?=$deal->getValue()?>);
   });
 <?end_page_js();?>

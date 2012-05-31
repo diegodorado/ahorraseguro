@@ -47,13 +47,14 @@ generator:
           %%_thumb%%
           %%_stats%%
           <h4>%%=title%%</h4>
-          <em>%%=category%%</em>
+          <em>%%=category%%</em><br/>
+          <em>en %%=quarter%%</em>
         object_actions:
           _edit: ~
           _delete: ~
           payments: {label: Operaciones, action: payments}
       filter:
-        display: [active, category_id, title]
+        display: [active, category_id, quarter_id, title]
       form:
         display:
           General: [ is_oferton, has_yapa, category_id, store_id, quarter_id, seller_id, title, newsletter_title]

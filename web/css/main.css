@@ -95,27 +95,26 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   overflow: hidden;
   *zoom: 1;
   margin-bottom: 20px;
+  height: 86px;
+  overflow: visible;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/partials\/_header\.sass}line{font-family:\0000313}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/partials\/_header\.sass}line{font-family:\0000315}}
 #header .logo {
   display: inline;
   float: left;
   margin-right: 10px;
   width: 270px;
-  text-align: center;
-  background: transparent url(../images/logo_bg.jpg) no-repeat center bottom;
-  height: 86px;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/\.rvm\/gems\/ruby-1\.9\.2-p290\@rails-3\.1\.1\/gems\/compass-0\.12\.1\/frameworks\/blueprint\/stylesheets\/blueprint\/_grid\.scss}line{font-family:\00003147}}
 * html #header .logo {
   overflow-x: hidden;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/partials\/_header\.sass}line{font-family:\0000318}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/partials\/_header\.sass}line{font-family:\0000317}}
 #header .logo a {
-  margin-left: 12px;
+  margin: 5px 0 0 50px;
   display: block;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/partials\/_header\.sass}line{font-family:\0000321}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/partials\/_header\.sass}line{font-family:\0000320}}
 #header .menu {
   display: inline;
   float: left;
@@ -126,10 +125,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 * html #header .menu {
   overflow-x: hidden;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/partials\/_header\.sass}line{font-family:\0000323}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/partials\/_header\.sass}line{font-family:\0000322}}
 #header .menu li {
   display: block;
   float: left;
+  position: relative;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/partials\/_header\.sass}line{font-family:\0000326}}
 #header .menu li a {
@@ -141,37 +141,43 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   padding: 0 10px;
   height: 58px;
   line-height: 58px;
+  white-space: pre;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/partials\/_header\.sass}line{font-family:\0000335}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/partials\/_header\.sass}line{font-family:\0000336}}
 #header .menu li a:hover {
   background-image: url('../images/menu_item_bg.png?1304984355');
   background-repeat: no-repeat;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/partials\/_header\.sass}line{font-family:\0000339}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/partials\/_header\.sass}line{font-family:\0000340}}
 #header .menu li .submenu {
   border: 1px solid white;
-  border-top: 0;
+  border-width: 0 1px 1px;
   margin-top: -7px;
   position: absolute;
   z-index: 1000;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/partials\/_header\.sass}line{font-family:\0000345}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/partials\/_header\.sass}line{font-family:\0000346}}
 #header .menu li .submenu li {
   float: none;
   background: #444444;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/partials\/_header\.sass}line{font-family:\0000348}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/partials\/_header\.sass}line{font-family:\0000349}}
 #header .menu li .submenu li a {
   display: block;
   background: #444444;
   height: 32px;
   line-height: 32px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/partials\/_header\.sass}line{font-family:\0000353}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/partials\/_header\.sass}line{font-family:\0000354}}
 #header .menu li .submenu li a:hover {
   background: black;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/partials\/_header\.sass}line{font-family:\0000355}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/partials\/_header\.sass}line{font-family:\0000357}}
+#header .menu li .submenu .submenu {
+  top: 7px;
+  border-width: 1px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/partials\/_header\.sass}line{font-family:\0000361}}
 #header #user_menu {
   display: inline;
   float: left;
@@ -182,7 +188,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 * html #header #user_menu {
   overflow-x: hidden;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/partials\/_header\.sass}line{font-family:\0000357}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/partials\/_header\.sass}line{font-family:\0000363}}
 #header #user_menu li {
   float: right;
   padding: 0 10px;
@@ -192,11 +198,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   height: 22px;
   line-height: 22px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/partials\/_header\.sass}line{font-family:\0000365}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/partials\/_header\.sass}line{font-family:\0000371}}
 #header #user_menu li a {
   color: white;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/partials\/_header\.sass}line{font-family:\0000368}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/partials\/_header\.sass}line{font-family:\0000374}}
 #header #user_menu li .newsletter label {
   float: left;
   font-weight: normal;
@@ -204,7 +210,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   padding-right: 3px;
   color: #222222;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/partials\/_header\.sass}line{font-family:\0000374}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/partials\/_header\.sass}line{font-family:\0000380}}
 #header #user_menu li .newsletter input {
   font-size: 13px;
   height: 14px;
@@ -212,7 +218,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   float: left;
   padding: 3px 8px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/partials\/_header\.sass}line{font-family:\0000380}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/diego\/proyectos\/symfony1\/mendozaoferta\/data\/sass\/partials\/_header\.sass}line{font-family:\0000386}}
 #header #user_menu li .newsletter button {
   background: #e7e7e7;
   border: 1px solid #cccccc;

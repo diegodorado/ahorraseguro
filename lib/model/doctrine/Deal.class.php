@@ -45,10 +45,6 @@ class Deal extends BaseDeal
   } 
 
 
-  function isPromo() {
-    return false;
-  } 
-
   function getTargetTime() {
     return $this->getDateTimeObject('ends_at')->getTimestamp();
   } 
@@ -77,6 +73,34 @@ class Deal extends BaseDeal
     }
     
     return $result;
+  } 
+
+
+  function getAvailable() {
+
+    $available = null;
+    if($this->getMaxDeals()){
+      //retrieve buys made already
+      $conn = Doctrine_Manager::connection();
+      $query = $conn->prepare("
+        select SUM(p.quantity) AS sum_quantity
+        from payment p
+        where p.deal_id = :deal_id
+      ");
+      $query->execute(array('deal_id' => $this->getId() ));
+      $result = $query->fetchAll();
+      $buyed = $result[0][0];
+      $available = $this->getMaxDeals() - $buyed;
+    }
+    if($this->getMaxPerBuy()){
+      if(isset($available)){
+        $available = min($available,$this->getMaxPerBuy());
+      }else{
+        $available = $this->getMaxPerBuy();
+      }
+    }
+    return $available;
+    
   } 
 
 

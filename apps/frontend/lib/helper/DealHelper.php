@@ -1,5 +1,27 @@
 <?php
 
+function qty_input($deal){
+  if($deal->getAvailable()){
+    $html = '<select name="quantity" style="width:40px;">';
+    for($i=1;$i<=$deal->getAvailable();$i++){
+      $html .= '<option value="'.$i.'" '.(($i==1)?'selected':'').'>'.$i.'</option>';
+    }
+    $html .= '</select>';
+  }else{
+    $html = '<input type="text" value="1" maxlength="3" name="quantity" style="width:40px;">';
+  }
+  return $html;
+  
+  
+}
+
+function qty_available($deal){
+  if($deal->getAvailable()){
+    return sprintf('<strong>%s</strong> máximo',$deal->getAvailable());
+  }
+}
+
+
 function printed_count_text($deal){
   $value= $deal->getPrintedCount();
   if($value==0){return 'Sé el primero en beneficiarte!';}

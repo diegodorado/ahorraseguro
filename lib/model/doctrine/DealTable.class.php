@@ -80,21 +80,44 @@ class DealTable extends Doctrine_Table
     }
   }
   
-  public function getDeals()
+  public function getBigDeals()
   {
     $q = $this->createQuery('d')
       ->where('d.starts_at < ?', date('Y-m-d H:i:s', time()))
       ->andWhere('d.ends_at > ?', date('Y-m-d H:i:s', time()))
-      //->andWhere('d.type = ?', 'O')
+      ->andWhere('d.is_oferton = ?', true)
       ->orderBy('d.starts_at ASC');
     return $q->execute();
   }
+
+
+  public function getDeals($category_id,$quarter_id,$yapa)
+  {
+    $q = $this->createQuery('d')
+      ->where('d.starts_at < ?', date('Y-m-d H:i:s', time()))
+      ->andWhere('d.ends_at > ?', date('Y-m-d H:i:s', time()))
+      ->andWhere('d.is_oferton = ?', false)
+      ->orderBy('d.starts_at ASC');
+
+    if($category_id){
+      $q->andWhere('d.category_id = ?', $category_id);
+    }
+    if($quarter_id){
+      $q->andWhere('d.quarter_id = ?', $quarter_id);
+    }
+    if($yapa){
+      $q->andWhere('d.has_yapa = ?', true);
+    }
+
+    return $q->execute();
+  }
+
+
 
   public function getClosedDeals()
   {
     $q = $this->createQuery('d')
       ->andWhere('d.ends_at < ?', date('Y-m-d H:i:s', time()))
-      //->andWhere('d.type = ? OR d.type = ?', array('O','D'))
       ->orderBy('d.ends_at DESC');
     return $q->execute();
   }
@@ -128,30 +151,6 @@ class DealTable extends Doctrine_Table
     return $q->execute();
   }
 
-  public function getPromocionesCategoryDeals($id)
-  {
-    self::setRandomExcludedCategoryId($id);
-    $q = $this->createQuery('d')
-      ->where('d.starts_at < ?', date('Y-m-d H:i:s', time()))
-      ->andWhere('d.ends_at > ?', date('Y-m-d H:i:s', time()))
-      //->andWhere('d.type = ?', 'P')
-      ->andWhere('d.category_id = ?', $id)
-      ->orderBy('d.starts_at ASC');
-    return $q->execute();
-  }
-
-  public function getPromoDeals()
-  {
-    //avoid showing same type*** change: always show random descuentos
-    //self::setRandomType('D');
-    
-    $q = $this->createQuery('d')
-      ->where('d.starts_at < ?', date('Y-m-d H:i:s', time()))
-      ->andWhere('d.ends_at > ?', date('Y-m-d H:i:s', time()))
-      //->andWhere('d.type = ?', 'P')
-      ->orderBy('d.starts_at ASC');
-    return $q->execute();
-  }
 
 
   public function getDeal($id)

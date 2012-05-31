@@ -2,29 +2,39 @@ homepage:
   url:   /
   param: { module: deals, action: index }
 
-deals:
-  url:   /deals
+big_deals:
+  url:   /
   param: { module: deals, action: index }
 
+deals:
+  url:   /ofertas
+  param: { module: deals, action: deals }
+
+yapa_deals:
+  url:   /yapas
+  param: { module: deals, action: deals, yapa: true }
+
+deals_by_category:
+  url:   /ofertas/de/:category_id/:yapa
+  param: { module: deals, action: deals, yapa: false }
+
+deals_by_category_and_quarter:
+  url:   /ofertas/de/:category_id/en/:quarter_id/:yapa
+  param: { module: deals, action: deals, yapa: false  }
+
+
+
 closed_deals:
-  url:   /closed_deals
+  url:   /recientes
   param: { module: deals, action: closed }
 
-promo_deals:
-  url:   /promo_deals
-  param: { module: deals, action: promoDeals }
-
 deal:
-  url:   /deal/:id
+  url:   /oferta/:id
   class:    sfDoctrineRoute
   param: { module: deals, action: show }
   options:  { model: Deal, type: object }
 
-print:
-  url:   /print/:id
-  class:    sfDoctrineRoute
-  param: { module: deals, action: print }
-  options:  { model: Deal, type: object }
+
 
 buy:
   url:   /buy/:id
@@ -48,49 +58,31 @@ payment_error:
   param: { module: deals, action: paymentError }
   options:  { model: Payment, type: object }
 
-descuentos_category:
-  url:   /descuentos_category/:id
-  class:    sfDoctrineRoute
-  param: { module: deals, action: descuentosCategory }
-  options:  { model: Category, type: object }
 
-descuentos_category_list:
-  url:   /descuentos_category_list
-  param: { module: deals, action: descuentosCategoryList }
-
-promociones_category:
-  url:   /promociones_category/:id
-  class:    sfDoctrineRoute
-  param: { module: deals, action: promocionesCategory }
-  options:  { model: Category, type: object }
-
-promociones_category_list:
-  url:   /promociones_category_list
-  param: { module: deals, action: promocionesCategoryList }
 
 
 #contact
 contact_us:
-  url:   /contact_us
+  url:   /contactanos
   param: { module: contact_us, action: index }
 
 contact_us_sent:
-  url:  /contact_us/sent
+  url:  /contactanos/enviado
   param: { module: contact_us, action: sent }
 
 
 #static
 about_us:
-  url:   /about_us
+  url:   /quienes-somos
   param: { module: static, action: aboutUs }
 faq:
   url:   /faq
   param: { module: static, action: faq }
 how_it_works:
-  url:   /how_it_works
+  url:   /como-funciona
   param: { module: static, action: howItWorks }
 privacy_policy:
-  url:   /privacy_policy
+  url:   /legales
   param: { module: static, action: privacyPolicy }
 
 

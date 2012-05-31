@@ -7,9 +7,14 @@
 
 $(function(){
 
+
+  $('.menu > li > .submenu').each( function(i,el){
+    $(el).find('.submenu').css('left',$(el).width()+'px');
+  });
+
 	$('.menu li').hover(
 		function(){
-			$(this).find('.submenu').show();
+			$(this).find('> .submenu').show();
 		},
 		function(){
 			$(this).find('.submenu').hide();

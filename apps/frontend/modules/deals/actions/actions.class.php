@@ -17,8 +17,29 @@ class dealsActions extends sfActions
   */
   public function executeIndex(sfWebRequest $request)
   {
-     $this->deals = Doctrine_Core::getTable('Deal')->getDeals();  
+     $this->title = 'Ofertones de hoy';
+     $this->deals = Doctrine_Core::getTable('Deal')->getBigDeals();  
   }
+
+  public function executeDeals(sfWebRequest $request)
+  {
+     $category_id = $request->getParameter('category_id');
+     $quarter_id = $request->getParameter('quarter_id');
+     $yapa = !!$request->getParameter('yapa');
+     if($category_id){
+       $category = Doctrine_Core::getTable('Category')->find($category_id);
+       $this->title = 'Ofertas de '.$category->getName();
+       if($quarter_id){
+         $quarter = Doctrine_Core::getTable('Quarter')->find($quarter_id);
+         $this->title .= ' en '.$quarter->getName();
+       }
+     }else{
+       $this->title = 'Todas las ofertas';
+     }
+     $this->deals = Doctrine_Core::getTable('Deal')->getDeals($category_id,$quarter_id,$yapa);
+     $this->setTemplate('index');
+  }
+
 
   public function executeClosed(sfWebRequest $request)
   {
@@ -29,40 +50,25 @@ class dealsActions extends sfActions
   {
      $this->deal = Doctrine_Core::getTable('Deal')->getDeal($request->getParameter('id'));
      $this->deal->increaseVisited();
-     if($this->deal->isPromo()){
-        return 'Promo';
-     }else{
-       if(!$this->deal->isOpen()){
-        return 'Closed';
-       }
+     if(!$this->deal->isOpen()){
+      return 'Closed';
      }
   }
-
-  public function executePrint(sfWebRequest $request)
-  {
-     $this->deal = Doctrine_Core::getTable('Deal')->getDeal($request->getParameter('id'));
-
-     if($this->getUser()->hasPrinted()){
-      $this->getUser()->setFlash('error', 'Solo puedes imprimir una promoción por día.   Gracias!');
-      return $this->redirect($this->generateUrl('deal', $this->deal));
-
-     }
-     
-     $this->deal->increasePrinted();
-     $this->getUser()->hasPrinted(true);
-  }
-
 
 
   public function executeCheckout(sfWebRequest $request)
   {
-    $this->deal = Doctrine_Core::getTable('Deal')->getDeal($request->getParameter('id'));
+    $this->deal = Doctrine_Core::getTable('Deal')->find($request->getParameter('id'));
+    if ($this->deal->getAvailable()===0){
+      $this->getUser()->setFlash('error', 'No quedan unidades de esta oferta.');
+      $this->redirect($this->generateUrl('deal', $this->deal));
+    }
   }
 
 
   public function executePay(sfWebRequest $request)
   {
-    $deal = Doctrine_Core::getTable('Deal')->getDeal($request->getParameter('deal_id'));
+    $deal = Doctrine_Core::getTable('Deal')->find($request->getParameter('deal_id'));
     $payment = new Payment();
     $payment->setDeal($deal);
     $payment->setUser($this->getUser()->getGuardUser());
@@ -94,7 +100,7 @@ class dealsActions extends sfActions
   public function executePaymentOk(sfWebRequest $request)
   {
     //todo: falta chequear que pasa si el usuario cerró sesión.... mejorar el metodo de verificacion
-    $payment = Doctrine_Core::getTable('Payment')->getPayment($request->getParameter('id'));
+    $payment = Doctrine_Core::getTable('Payment')->find($request->getParameter('id'));
     //forward404Unless payment found
     $this->forward404Unless($payment);
     //forward404Unless payment in user session
@@ -156,7 +162,7 @@ EOF;
   public function executePaymentError(sfWebRequest $request)
   {
     //todo: falta chequear que pasa si el usuario cerró sesión.... mejorar el metodo de verificacion
-    $payment = Doctrine_Core::getTable('Payment')->getPayment($request->getParameter('id'));
+    $payment = Doctrine_Core::getTable('Payment')->find($request->getParameter('id'));
     //forward404Unless payment found
     $this->forward404Unless($payment);
     //all right, can continue
@@ -167,35 +173,6 @@ EOF;
     $this->getUser()->setFlash('error', sprintf('Has cancelado tu compra por %s. Puedes intentarlo de nuevo si quieres.', $deal->getTitle()));
     $this->redirect($this->generateUrl('deal', $deal));
 
-  }
-
-
-  public function executeDescuentosCategoryList(sfWebRequest $request)
-  {
-     $this->categories = Doctrine_Core::getTable('Category')->getDescuentosCategories();  
-  }
-
-  public function executeDescuentosCategory(sfWebRequest $request)
-  {
-     $this->category = Doctrine_Core::getTable('Category')->getCategory($request->getParameter('id'));
-     $this->deals = Doctrine_Core::getTable('Deal')->getDescuentosCategoryDeals($request->getParameter('id'));
-  }
-
-  public function executePromocionesCategoryList(sfWebRequest $request)
-  {
-     $this->categories = Doctrine_Core::getTable('Category')->getPromocionesCategories();  
-  }
-
-  public function executePromocionesCategory(sfWebRequest $request)
-  {
-     $this->category = Doctrine_Core::getTable('Category')->getCategory($request->getParameter('id'));
-     $this->deals = Doctrine_Core::getTable('Deal')->getPromocionesCategoryDeals($request->getParameter('id'));
-  }
-
-
-  public function executePromoDeals(sfWebRequest $request)
-  {
-     $this->deals = Doctrine_Core::getTable('Deal')->getPromoDeals();
   }
 
   

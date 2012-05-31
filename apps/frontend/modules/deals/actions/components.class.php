@@ -2,14 +2,9 @@
 
 class dealsComponents extends sfComponents
 {
-  public function executeDescuentosCategoryList()
+  public function executeCategoryList()
   {
-     $this->categories = Doctrine_Core::getTable('Category')->getDescuentosCategories();  
-  }
-
-  public function executePromocionesCategoryList()
-  {
-     $this->categories = Doctrine_Core::getTable('Category')->getPromocionesCategories();  
+     $this->categories = Doctrine_Core::getTable('Category')->getCategories($this->has_yapa);  
   }
 
   public function executeRandomLeftDeals()
