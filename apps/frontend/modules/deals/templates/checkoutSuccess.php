@@ -50,7 +50,7 @@
 </div>
 
 <?page_js();?>
-  $('#quantity').bind('blur keypress keyup', function(event) {
+  $('#quantity').bind('click blur keypress keyup', function(event) {
     //return event.preventDefault();
     $('#total_amt').html(this.value*<?=$deal->getValue()?>);
   });

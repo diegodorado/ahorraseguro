@@ -2,13 +2,13 @@
 
 function qty_input($deal){
   if($deal->getAvailable()){
-    $html = '<select name="quantity" style="width:40px;">';
+    $html = '<select id="quantity" name="quantity" style="width:40px;">';
     for($i=1;$i<=$deal->getAvailable();$i++){
       $html .= '<option value="'.$i.'" '.(($i==1)?'selected':'').'>'.$i.'</option>';
     }
     $html .= '</select>';
   }else{
-    $html = '<input type="text" value="1" maxlength="3" name="quantity" style="width:40px;">';
+    $html = '<input id="quantity" type="text" value="1" maxlength="3" name="quantity" style="width:40px;">';
   }
   return $html;
   
