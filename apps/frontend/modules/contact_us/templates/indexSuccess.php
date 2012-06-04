@@ -19,7 +19,7 @@
 <div class="content">
   <h1>Contacto</h1>
   <p>
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent semper nunc quis elit condimentum ac vulputate metus ornare. Donec vitae purus lorem.
+      Hacenos llegar tus sugerencias y comentarios. te contestaremos a la brevedad.    
   </p>
 
   <form class="simple" action="<?=url_for('@contact_us') ?>" method="post">

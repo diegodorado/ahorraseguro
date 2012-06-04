@@ -8,7 +8,11 @@ all:
   from_email: info@ahorraseguro.com.ar
   from_fullname: El Equipo de info@ahorraseguro.com.ar
   contact_phone:  +54 000 000
-  contact_email: info@ahorraseguro.com.ar
+  contact_email: contacto@ahorraseguro.com.ar
+  
+  twitter_link: http://twitter.com/AhorraSeguro   
+  facebook_link: http://www.facebook.com/AhorraSeguro
+  linkedin_link: '#'
   
   sf_guard_plugin:
     routes_register: false  

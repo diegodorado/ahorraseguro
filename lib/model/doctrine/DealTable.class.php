@@ -31,18 +31,7 @@ class DealTable extends Doctrine_Table
 
   public static function getRandomTitle()
   {
-    switch (self::$random_type){
-      case 'D': 
-        return 'Descuentos';
-        break;
-      case 'P':
-        return 'Promociones';
-        break;
-      case 'O':
-        return 'Ofertones';
-        break;
-    }
-    return self::$random_type;
+    return 'Ofertas';
   }
 
   private static function setRandomExcludedCategoryId($id)
@@ -65,17 +54,22 @@ class DealTable extends Doctrine_Table
       ->from('Deal d')
       ->where('d.starts_at < ?', date('Y-m-d H:i:s', time()))
       ->andWhere('d.ends_at > ?', date('Y-m-d H:i:s', time()))
-      //->andWhere('d.type = ?', self::getRandomType())
+      ->andWhere('d.is_oferton = ?', false)
       ->orderby('rand')
-      ->limit(11);
+      ->limit(22);
     if(self::getRandomExcludedCategoryId()){
       $q->andWhere('d.category_id <> ?', self::getRandomExcludedCategoryId());
     }
     self::$random_left_ids = array();
     self::$random_right_ids = array();
     $i=0;
-    foreach($q->execute(array(),Doctrine_Core::HYDRATE_ARRAY) as $r){
-      (($i%2)==0) ? self::$random_left_ids[]= $r['id'] : self::$random_right_ids[]= $r['id'];
+    $results = $q->execute(array(),Doctrine_Core::HYDRATE_ARRAY);
+    foreach($results as $r){
+      if (($i%2)==0  || $i<2){
+        self::$random_left_ids[]= $r['id'];
+      }else{
+        self::$random_right_ids[]= $r['id'];
+      }
       $i++;
     }
   }
@@ -170,16 +164,6 @@ class DealTable extends Doctrine_Table
     return $q->execute();
   }
 
-  public function getRandomDescuentos()
-  {
-    $q = $this->createQuery('d')
-       ->where('d.starts_at < ?', date('Y-m-d H:i:s', time()))
-      ->andWhere('d.ends_at > ?', date('Y-m-d H:i:s', time()))
-      //->andWhere('d.type = ?', 'D')
-      ->orderby('rand()')
-      ->limit(6);
-    return $q->execute();
-  }
 
 
   

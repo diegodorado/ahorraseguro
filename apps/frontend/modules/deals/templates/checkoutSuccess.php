@@ -8,7 +8,21 @@
   
 <div class="content">
   <h1>Comprar</h1>
-  <p>Serás redireccionado al sitio de dineromail.com.ar para completar la compra.</p>
+  <div class="advice">
+    <table>
+      <tr>
+        <td>
+         	<?=image_tag('logo.png', array('alt'=>'Ahorra Seguro'))?>
+        </td>
+        <td>
+         	<span>trabaja con </span>
+        </td>
+        <td>
+         	<?=image_tag('dinero_mail_logo.gif', array('alt'=>'DineroMail'))?>
+        </td>
+      </tr>
+    </table>
+  </div>
   <form method="POST" action="<?=url_for('@pay')?>">
     <input type="hidden" value="<?=$deal->getId()?>" name="deal_id" />
     <table cellpadding="5" style="width:100%">

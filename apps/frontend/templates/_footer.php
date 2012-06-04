@@ -16,19 +16,24 @@
         <h5>Seguinos</h5>
         <ul>
           <li>
-            <a href="#" target="_blank"><img src="/images/linked.png" /> <span class="valign_top">linked In</span></a>
+            <a href="<?=sfConfig::get('app_linkedin_link')?>" target="_blank"><img src="/images/linked.png" /> <span class="valign_top">linked In</span></a>
           </li>
           <li>
-            <a href="#" target="_blank" ><img src="/images/facebook.png" /> <span class="valign_top">Facebook</span></a>
+            <a href="<?=sfConfig::get('app_facebook_link')?>" target="_blank" ><img src="/images/facebook.png" /> <span class="valign_top">Facebook</span></a>
           </li>
           <li>
-            <a href="#" target="_blank" ><img src="/images/twitter.png" /> <span class="valign_top">Twitter</span></a>
+            <a href="<?=sfConfig::get('app_twitter_link')?>" target="_blank" ><img src="/images/twitter.png" /> <span class="valign_top">Twitter</span></a>
           </li>
         </ul>
       </div>
       <div class="last_column">
-        <h5>Ofertas imbatibles para aventuras Local!</h5>
-        <p>Ahorra Seguro es una manera fácil de obtener grandes descuentos y descubrir las actividades de diversión en tu ciudad. Nuestras ofertas diarias consisten en líneas aéreas, bar, restaurantes, spa, masajes, teatros, hoteles, y mucho más.</p>
+        <h5>Ofertones y Ofertas para Ahorrar Seguro!</h5>
+        <p>
+          Ahorra Seguro es una manera fácil, cómoda e inteligente de obtener grandes descuentos en tus compras.<br/>
+          Todos los días cerca de 15 OFERTONES con mas del 50% de descuento, MILES DE OFERTAS en forma permanente que van desde el 15 al 45% de descuento, YAPA...<br/>
+          Todos los rubros, todos los barrios, todos los servicios y artículos que puedas imaginar!!<br/>
+          No vas a querer salir a comprar antes de entrar en Ahorraseguro.com.ar !!! Tu manera INTELIGENTE de AHORRAR SEGURO en tus compras!<br/>
+        </p>
       </div>
     </div>
     <div class="bottom">
@@ -41,15 +46,14 @@
         <div class="contact_detail">
             <h3>Contáctenos</h3>
             <p>
-              <strong>Tel :</strong> <?=sfConfig::get('app_contact_phone')?><br/>
-              <strong>E-mail :</strong> <?=auto_link_text(sfConfig::get('app_contact_email'))?>
+              <?=link_to('Formulario de contacto','@contact_us')?>
             </p>
         </div>
       </div>
       <div class="last_column">
         <div class="footer_logo">
-  	 	    <?=link_to(image_tag('footer_logo.png', array('alt'=>'Mendoza en Oferta')),'@homepage')?>
-          <p>&copy; 2011  MendozaOferta.com.ar. Todos los derechos reservados.</p>
+  	 	    <?=link_to(image_tag('footer_logo.png', array('alt'=>'Ahorra Seguro')),'@homepage')?>
+          <p>&copy; 2012  AhorraSeguro.com.ar. Todos los derechos reservados.</p>
         </div>
       </div>
     </div>
