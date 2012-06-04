@@ -51,7 +51,6 @@
 
 <?page_js();?>
   $('#quantity').bind('click blur keypress keyup', function(event) {
-    //return event.preventDefault();
     $('#total_amt').html(this.value*<?=$deal->getValue()?>);
   });
 <?end_page_js();?>

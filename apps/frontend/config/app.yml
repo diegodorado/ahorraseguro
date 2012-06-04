@@ -23,7 +23,7 @@ all:
       seller_name: info@ahorraseguro.com.ar
       languge: es
       currency: ars
-      header_image: http://mendozaoferta.cooph.com.ar/images/dineromail_logo.png
+      header_image: http://ahorraseguro.com.ar/images/dineromail_logo.png
       change_quantity: 0
       expanded_sale_detail: 1
 
