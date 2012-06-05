@@ -45,7 +45,8 @@
       this.type = 'number';
     });
 
-    $("#deal_offer").attr('disabled', 'disabled');
+    //seems this avoid the value being sent
+    //$("#deal_offer").attr('disabled', 'disabled');
 
     $("#deal_published_value, #deal_real_value").bind('change keyup input', function(event){
       var real = parseInt($("#deal_real_value").val(),10);
