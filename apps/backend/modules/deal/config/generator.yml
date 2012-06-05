@@ -56,6 +56,8 @@ generator:
           _delete: ~
           payments: {label: Operaciones, action: payments}
           preview: {label: 'Previsualizar', action: preview}
+
+                
       filter:
         display: [status, category_id, quarter_id, title]
       form:

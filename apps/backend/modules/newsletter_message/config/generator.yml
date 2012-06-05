@@ -22,6 +22,8 @@ generator:
           - is_active
         
         object_actions:
+          _edit: ~
+          _delete: ~
           preview: {label: Previsualizar, action: preview}
           status: {label: Estado, action: status}
       filter:

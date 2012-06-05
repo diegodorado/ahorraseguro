@@ -60,7 +60,7 @@ EOF;
         ->where('ne.is_active = ?', true);
       $result = $q->execute(array(), Doctrine_Core::HYDRATE_NONE);
       $total = $result[0][0];
-      $limit = ceil($total/300);
+      $limit = ceil($total/300);// 5h *60min
 
       $nm = new NewsletterMessage();
       $nm->from_email = 'info@ahorraserguro.com.ar';
