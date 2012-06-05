@@ -33,11 +33,11 @@ class Deal extends BaseDeal
   } 
 
   function getValue() {
-    return $this->getRealValue() - $this->getDiscount();
+    return $this->getPublishedValue();
   } 
 
   function getDiscount() {
-    return round($this->getRealValue() * ($this->getOffer()/100));
+    return $this->getRealValue()  - $this->getPublishedValue();
   } 
 
   function isOpen() {

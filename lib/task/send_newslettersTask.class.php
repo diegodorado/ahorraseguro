@@ -16,14 +16,14 @@ class send_newslettersTask extends sfBaseTask
       // add your own options here
     ));
 
-    $this->namespace        = '';
-    $this->name             = 'send_newsletters';
+    $this->namespace        = 'newsletter';
+    $this->name             = 'send';
     $this->briefDescription = '';
     $this->detailedDescription = <<<EOF
 The [send_newsletters|INFO] task send a newsletter with latest deals.
 Call it with:
 
-  [php symfony send_newsletters|INFO]
+  [php symfony newsletter:send|INFO]
 EOF;
   }
 

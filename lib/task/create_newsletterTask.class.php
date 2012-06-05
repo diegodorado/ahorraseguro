@@ -16,14 +16,14 @@ class create_newsletterTask extends sfBaseTask
       // add your own options here
     ));
 
-    $this->namespace        = '';
-    $this->name             = 'create_newsletter';
+    $this->namespace        = 'newsletter';
+    $this->name             = 'create';
     $this->briefDescription = 'creates the newsletter message';
     $this->detailedDescription = <<<EOF
 The [create_newsletter|INFO] task creates the newsletter message.
 Call it with:
 
-  [php symfony create_newsletter|INFO]
+  [php symfony newsletter:create|INFO]
 EOF;
   }
 
@@ -36,14 +36,14 @@ EOF;
     sfContext::createInstance($this->configuration);
     $this->configuration->loadHelpers('Partial');
 
+    $big_deals = Doctrine_Core::getTable('Deal')->getTodayBigDeals();
     $deals = Doctrine_Core::getTable('Deal')->getTodayDeals();
-    $descuentos = Doctrine_Core::getTable('Deal')->getRandomDescuentos();
 
-    if (count($deals)){
+    if (count($big_deals)){
       
-      $html = get_partial('mails/newsletter', array('base_url'=>'http://ahorraseguro.com.ar','deals'=>$deals, 'descuentos'=>$descuentos));
+      $html = get_partial('mails/newsletter', array('base_url'=>'http://ahorraseguro.com.ar','big_deals'=>$big_deals, 'deals'=>$deals));
       $titles = array();
-      foreach($deals as $deal){
+      foreach($big_deals as $deal){
         $titles[] = $deal->getNewsletterTitle();
       }
 
@@ -74,6 +74,8 @@ EOF;
       $nm->is_active = 1;
       $nm->save();    
 
+    }else{
+      echo "No hay Ofertones para crear el newsletter\n";
     }
   }
 

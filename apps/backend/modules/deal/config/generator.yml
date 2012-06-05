@@ -30,8 +30,10 @@ generator:
         starts_at: { label: "Empieza" }
         ends_at: { label: "Termina" }
         image: { label: "Imagen" }
-        offer: { label: "Porcentaje" }
-        real_value: { label: "Valor Real" }
+        offer: { label: "Descuento (%)"}
+        commission: { label: "Comisión (%)"}
+        published_value: { label: "Precio a Publicar" }
+        real_value: { label: "Valor 'Real'" }
         bought_count: { label: "Cantidad comprada" }
         visited_count: { label: "Cantidad de visitas" }
         printed_count: { label: "Cantidad impresa" }
@@ -53,15 +55,16 @@ generator:
           _edit: ~
           _delete: ~
           payments: {label: Operaciones, action: payments}
+          preview: {label: 'Previsualizar', action: preview}
       filter:
-        display: [active, category_id, quarter_id, title]
+        display: [status, category_id, quarter_id, title]
       form:
         display:
-          General: [ is_oferton, has_yapa, category_id, store_id, quarter_id, seller_id, title, newsletter_title]
+          General: [ is_oferton, has_yapa, category_id, store_id, quarter_id, seller_id, commission, title, newsletter_title]
           Contenido: [description, featured, conditions]
           Fechas: [starts_at, ends_at]
           Media: [image]
-          Precios: [_offer, real_value]
+          Precios: [published_value, real_value,offer]
           Parámetros: [max_per_buy, max_deals, bought_count, visited_count, printed_count]
       edit:
         title: Editar Oferta

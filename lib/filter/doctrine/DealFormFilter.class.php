@@ -10,21 +10,23 @@
  */
 class DealFormFilter extends BaseDealFormFilter
 {
+  private static $status_choices = array('' => '', 'p' => 'PASADAS', 'a' => 'ACTIVAS', 'f'=>'FUTURAS');
+
   public function configure()
   {
 
-    $this->widgetSchema['active'] =
+    $this->widgetSchema['status'] =
             new sfWidgetFormChoice(array(
-                    'choices' => array('' => '', 1 => 'Si', 0 => 'No')));
+                    'choices' => self::$status_choices));
 
-    $this->validatorSchema['active'] =
+    $this->validatorSchema['status'] =
             new sfValidatorChoice(array(
                     'required' => false,
-                    'choices' => array(1, 0)));
+                    'choices' => array_keys(self::$status_choices)));
                     
 
     $this->getWidgetSchema()->setLabels(array(
-      'active' => 'Activa',
+      'status' => 'Estado',
       'category_id' => 'Categoría',
       'title' => 'Titulo',
       'seller' => 'Vendedor',
@@ -33,16 +35,18 @@ class DealFormFilter extends BaseDealFormFilter
   }
 
 
-  protected function addActiveColumnQuery(Doctrine_Query $query, $field, $value)
+  protected function addStatusColumnQuery(Doctrine_Query $query, $field, $value)
   {
      switch($value) {
-       case 0:
+       case 'p':
         $query->addWhere(sprintf('%s.ends_at < ?', $query->getRootAlias()),date('Y-m-d H:i:s', time()));
         break;
-       case 1:
+       case 'a':
         $query->addWhere(sprintf('%s.starts_at < ?', $query->getRootAlias()),date('Y-m-d H:i:s', time()));
         $query->addWhere(sprintf('%s.ends_at > ?', $query->getRootAlias()),date('Y-m-d H:i:s', time()));
         break;
+       case 'f':
+        $query->addWhere(sprintf('%s.starts_at > ?', $query->getRootAlias()),date('Y-m-d H:i:s', time()));
      }
   }
 

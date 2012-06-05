@@ -53,7 +53,9 @@ Deal:
     bought_count:   { type: integer, notnull: true }
     visited_count:   { type: integer, notnull: true }
     printed_count:   { type: integer, notnull: true }
+    commission:  integer
     offer:  integer
+    published_value:  integer
     real_value:  integer
     image:  { type: string(255) }
     title:  { type: string(255), notnull: true }

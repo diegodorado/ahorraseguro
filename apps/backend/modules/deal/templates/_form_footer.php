@@ -22,9 +22,12 @@
       if($(this).is(':checked')){
         $('.sf_admin_form_field_has_yapa').hide();
         $('.sf_admin_form_field_category_id').hide();
+        $("#deal_commission").val(30);
+        
       }else{
         $('.sf_admin_form_field_has_yapa').show();
         $('.sf_admin_form_field_category_id').show();
+        $("#deal_commission").val(15);
       }
     }).trigger('change');
     
@@ -38,6 +41,21 @@
 
 
 
+    $("#deal_real_value, #deal_published_value").each(function(index) {
+      this.type = 'number';
+    });
+
+    $("#deal_offer").attr('disabled', 'disabled');
+
+    $("#deal_published_value, #deal_real_value").bind('change keyup input', function(event){
+      var real = parseInt($("#deal_real_value").val(),10);
+      var published = parseInt($("#deal_published_value").val(),10);
+      var offer =  Math.round(100 - published/real*100);
+      if(offer>0){
+        $("#deal_offer").val(offer);
+      }
+
+    });
 
 
 

@@ -33,6 +33,13 @@ class dealActions extends autoDealActions
   
 
 
+  public function executePreview(sfWebRequest $request) {
+    $deal_id = $request->getParameter('id');
+    $this->getUser()->setFlash('notice', 'Estas previsualizando una oferta.');
+    $this->redirect('/oferta/'.$deal_id);
+  }
+  
+
   
 
   public function executeJson(sfWebRequest $request)

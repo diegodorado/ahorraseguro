@@ -6,7 +6,7 @@
   </tr>
   <tr bgcolor="#fda424" >
     <td style="text-align:right;padding:22px 15px 10px 0;letter-spacing:-1px;font-size:12px; color:#222">
-      OFERTONES | DESCUENTOS | PROMOCIONES y MUCHO MÁS
+      OFERTONES | OFERTAS | YAPAS y MUCHO MÁS
 	  </td>
   </tr>
   <tr bgcolor="#262626" height="95">
@@ -38,11 +38,11 @@
 				    <table width="434" border="0" cellpadding="0" cellspacing="0">
               <tr>
 	              <td style="font-weight: bold;font-size:18px;padding:7px 0">
-                  OFERTAS de HOY
+                  OFERTONES de HOY
 	              </td>
               </tr>
-				      <?foreach($deals as $deal):?>
-  				      <?include_partial('mails/deal',array('base_url'=>$base_url,'deal'=>$deal))?>
+				      <?foreach($big_deals as $big_deal):?>
+  				      <?include_partial('mails/big_deal',array('base_url'=>$base_url,'deal'=>$big_deal))?>
 				      <?endforeach?>
 				      <tr>
       					<td height="30"></td>
@@ -55,10 +55,10 @@
 			    <td bgcolor="#fff" width="150" valign="top">
 				    <table width="150" border="0" cellpadding="0" cellspacing="0" >
               <td style="font-weight: bold;font-size:14px;padding:7px 0">
-                DESCUENTOS
+                OFERTAS
               </td>
-				      <?foreach($descuentos as $deal):?>
-  				      <?include_partial('mails/descuento',array('base_url'=>$base_url,'deal'=>$deal))?>
+				      <?foreach($deals as $deal):?>
+  				      <?include_partial('mails/deal',array('base_url'=>$base_url,'deal'=>$deal))?>
 				      <?endforeach?>
 				      <tr>
       					<td height="30"></td>

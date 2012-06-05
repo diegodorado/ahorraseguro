@@ -16,7 +16,9 @@
  * @property integer $bought_count
  * @property integer $visited_count
  * @property integer $printed_count
+ * @property integer $commission
  * @property integer $offer
+ * @property integer $published_value
  * @property integer $real_value
  * @property string $image
  * @property string $title
@@ -43,7 +45,9 @@
  * @method integer             getBoughtCount()      Returns the current record's "bought_count" value
  * @method integer             getVisitedCount()     Returns the current record's "visited_count" value
  * @method integer             getPrintedCount()     Returns the current record's "printed_count" value
+ * @method integer             getCommission()       Returns the current record's "commission" value
  * @method integer             getOffer()            Returns the current record's "offer" value
+ * @method integer             getPublishedValue()   Returns the current record's "published_value" value
  * @method integer             getRealValue()        Returns the current record's "real_value" value
  * @method string              getImage()            Returns the current record's "image" value
  * @method string              getTitle()            Returns the current record's "title" value
@@ -69,7 +73,9 @@
  * @method Deal                setBoughtCount()      Sets the current record's "bought_count" value
  * @method Deal                setVisitedCount()     Sets the current record's "visited_count" value
  * @method Deal                setPrintedCount()     Sets the current record's "printed_count" value
+ * @method Deal                setCommission()       Sets the current record's "commission" value
  * @method Deal                setOffer()            Sets the current record's "offer" value
+ * @method Deal                setPublishedValue()   Sets the current record's "published_value" value
  * @method Deal                setRealValue()        Sets the current record's "real_value" value
  * @method Deal                setImage()            Sets the current record's "image" value
  * @method Deal                setTitle()            Sets the current record's "title" value
@@ -139,7 +145,13 @@ abstract class BaseDeal extends sfDoctrineRecord
              'type' => 'integer',
              'notnull' => true,
              ));
+        $this->hasColumn('commission', 'integer', null, array(
+             'type' => 'integer',
+             ));
         $this->hasColumn('offer', 'integer', null, array(
+             'type' => 'integer',
+             ));
+        $this->hasColumn('published_value', 'integer', null, array(
              'type' => 'integer',
              ));
         $this->hasColumn('real_value', 'integer', null, array(

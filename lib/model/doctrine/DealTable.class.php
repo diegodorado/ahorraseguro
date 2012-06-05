@@ -133,18 +133,6 @@ class DealTable extends Doctrine_Table
     return $q->execute();
   }
 
-  public function getDescuentosCategoryDeals($id)
-  {
-    self::setRandomExcludedCategoryId($id);
-    $q = $this->createQuery('d')
-      ->where('d.starts_at < ?', date('Y-m-d H:i:s', time()))
-      ->andWhere('d.ends_at > ?', date('Y-m-d H:i:s', time()))
-      //->andWhere('d.type = ?', 'D')
-      ->andWhere('d.category_id = ?', $id)
-      ->orderBy('d.starts_at ASC');
-    return $q->execute();
-  }
-
 
 
   public function getDeal($id)
@@ -154,12 +142,22 @@ class DealTable extends Doctrine_Table
     return $q->fetchOne();
   }  
 
+  public function getTodayBigDeals()
+  {
+    $q = $this->createQuery('d')
+      ->where('d.starts_at >= ?', date('Y-m-d H:i:s', mktime(0, 0, 0, date("m") , date("d")+1, date("Y"))))
+      ->andWhere('d.starts_at < ?', date('Y-m-d H:i:s', mktime(0, 0, 0, date("m") , date("d")+2, date("Y"))))
+      ->andWhere('d.is_oferton = ?', true)
+      ->orderBy('d.starts_at ASC');
+    return $q->execute();
+  }
+
   public function getTodayDeals()
   {
     $q = $this->createQuery('d')
-      ->where('d.starts_at >= ?', date('Y-m-d H:i:s', mktime(0, 0, 0, date("m") , date("d")+0, date("Y"))))
-      ->andWhere('d.ends_at < ?', date('Y-m-d H:i:s', mktime(0, 0, 0, date("m") , date("d")+1, date("Y"))))
-      //->andWhere('d.type = ?', 'O')
+      ->where('d.starts_at >= ?', date('Y-m-d H:i:s', mktime(0, 0, 0, date("m") , date("d")+1, date("Y"))))
+      ->andWhere('d.starts_at < ?', date('Y-m-d H:i:s', mktime(0, 0, 0, date("m") , date("d")+2, date("Y"))))
+      ->andWhere('d.is_oferton = ?', false)
       ->orderBy('d.starts_at ASC');
     return $q->execute();
   }

@@ -1004,6 +1004,7 @@ body.user #content .savings .saved .value {
   -o-border-bottom-right-radius: 15px;
   border-bottom-right-radius: 15px;
   background-color: #fefe97;
+  display: block;
   background-color: rgba(254, 254, 151, 0.7);
   bottom: 0;
   color: #222222;
