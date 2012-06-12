@@ -8,7 +8,7 @@
 <tr><td height="5"></td></tr>
 <tr>
 	<td>
-    <?=link_to(image_tag($base_url.$deal->getThumb('s'),array('width'=>'150','height'=>'150')),$base_url.'/deal/'.$deal['id'])?>
+    <?=link_to(image_tag($base_url.$deal->getThumb('s'),array('width'=>'150','height'=>'150')),$base_url.'/oferta/'.$deal['id'])?>
   </td>
 </tr>
 <tr><td height="3"></td></tr>

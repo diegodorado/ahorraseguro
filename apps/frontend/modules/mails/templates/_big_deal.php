@@ -17,7 +17,7 @@
 				<table width="202" height="230" border="0" cellpadding="0" cellspacing="0">
 				  <tr>
 					  <td>
-              <?=link_to(image_tag($base_url.$deal->getThumb('m'),array('width'=>'200','height'=>'200')),$base_url.'/deal/'.$deal['id'])?>
+              <?=link_to(image_tag($base_url.$deal->getThumb('m'),array('width'=>'200','height'=>'200')),$base_url.'/oferta/'.$deal['id'])?>
 					  </td>
 				  </tr>
 				  <tr>

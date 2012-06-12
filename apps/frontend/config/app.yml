@@ -22,9 +22,9 @@ all:
     checkout_url: https://checkout.dineromail.com/CheckOut
     checkout_params:
       tool: cart
-      merchant: 1992734
+      merchant: 2790688
       country_id: 1
-      seller_name: info@ahorraseguro.com.ar
+      seller_name: ventas@ahorraseguro.com.ar
       languge: es
       currency: ars
       header_image: http://ahorraseguro.com.ar/images/dineromail_logo.png
