@@ -11,6 +11,9 @@
 <div class="content">
   <h1>Registro</h1>
   
+  
+ 	<?=image_tag('register-header.jpg')?>
+  
   <form method="POST" class="simple">
     <?php echo $form ?>
     <div class="form-row botones">
