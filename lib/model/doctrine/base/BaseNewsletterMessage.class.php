@@ -82,6 +82,7 @@ abstract class BaseNewsletterMessage extends sfDoctrineRecord
              ));
         $this->hasColumn('is_active', 'boolean', null, array(
              'type' => 'boolean',
+             'default' => 0,
              ));
     }
 

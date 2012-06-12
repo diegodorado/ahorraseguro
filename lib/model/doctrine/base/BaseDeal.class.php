@@ -115,14 +115,17 @@ abstract class BaseDeal extends sfDoctrineRecord
              ));
         $this->hasColumn('seller_id', 'integer', 8, array(
              'type' => 'integer',
+             'notnull' => true,
              'length' => 8,
              ));
         $this->hasColumn('store_id', 'integer', 8, array(
              'type' => 'integer',
+             'notnull' => true,
              'length' => 8,
              ));
         $this->hasColumn('quarter_id', 'integer', 8, array(
              'type' => 'integer',
+             'notnull' => true,
              'length' => 8,
              ));
         $this->hasColumn('starts_at', 'timestamp', null, array(
@@ -147,15 +150,19 @@ abstract class BaseDeal extends sfDoctrineRecord
              ));
         $this->hasColumn('commission', 'integer', null, array(
              'type' => 'integer',
+             'notnull' => true,
              ));
         $this->hasColumn('offer', 'integer', null, array(
              'type' => 'integer',
+             'notnull' => true,
              ));
         $this->hasColumn('published_value', 'integer', null, array(
              'type' => 'integer',
+             'notnull' => true,
              ));
         $this->hasColumn('real_value', 'integer', null, array(
              'type' => 'integer',
+             'notnull' => true,
              ));
         $this->hasColumn('image', 'string', 255, array(
              'type' => 'string',
@@ -168,6 +175,7 @@ abstract class BaseDeal extends sfDoctrineRecord
              ));
         $this->hasColumn('newsletter_title', 'string', 50, array(
              'type' => 'string',
+             'notnull' => true,
              'length' => '50',
              ));
         $this->hasColumn('featured', 'string', 4000, array(

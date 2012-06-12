@@ -13,13 +13,15 @@ abstract class BaseNewsletterEmailFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'email'     => new sfWidgetFormFilterInput(array('with_empty' => false)),
-      'is_active' => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
+      'email'       => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'is_active'   => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
+      'is_original' => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
     ));
 
     $this->setValidators(array(
-      'email'     => new sfValidatorPass(array('required' => false)),
-      'is_active' => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
+      'email'       => new sfValidatorPass(array('required' => false)),
+      'is_active'   => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
+      'is_original' => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
     ));
 
     $this->widgetSchema->setNameFormat('newsletter_email_filters[%s]');
@@ -39,9 +41,10 @@ abstract class BaseNewsletterEmailFormFilter extends BaseFormFilterDoctrine
   public function getFields()
   {
     return array(
-      'id'        => 'Number',
-      'email'     => 'Text',
-      'is_active' => 'Boolean',
+      'id'          => 'Number',
+      'email'       => 'Text',
+      'is_active'   => 'Boolean',
+      'is_original' => 'Boolean',
     );
   }
 }

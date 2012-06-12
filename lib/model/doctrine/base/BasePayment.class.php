@@ -55,10 +55,9 @@ abstract class BasePayment extends sfDoctrineRecord
              'notnull' => true,
              'length' => '1',
              ));
-        $this->hasColumn('deal_id', 'integer', 8, array(
+        $this->hasColumn('deal_id', 'integer', null, array(
              'type' => 'integer',
              'notnull' => true,
-             'length' => 8,
              ));
         $this->hasColumn('user_id', 'integer', null, array(
              'type' => 'integer',
@@ -99,7 +98,8 @@ abstract class BasePayment extends sfDoctrineRecord
 
         $this->hasOne('Deal', array(
              'local' => 'deal_id',
-             'foreign' => 'id'));
+             'foreign' => 'id',
+             'onDelete' => 'CASCADE'));
 
         $timestampable0 = new Doctrine_Template_Timestampable();
         $this->actAs($timestampable0);

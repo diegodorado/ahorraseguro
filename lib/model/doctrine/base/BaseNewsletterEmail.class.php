@@ -7,11 +7,14 @@
  * 
  * @property string $email
  * @property boolean $is_active
+ * @property boolean $is_original
  * 
- * @method string          getEmail()     Returns the current record's "email" value
- * @method boolean         getIsActive()  Returns the current record's "is_active" value
- * @method NewsletterEmail setEmail()     Sets the current record's "email" value
- * @method NewsletterEmail setIsActive()  Sets the current record's "is_active" value
+ * @method string          getEmail()       Returns the current record's "email" value
+ * @method boolean         getIsActive()    Returns the current record's "is_active" value
+ * @method boolean         getIsOriginal()  Returns the current record's "is_original" value
+ * @method NewsletterEmail setEmail()       Sets the current record's "email" value
+ * @method NewsletterEmail setIsActive()    Sets the current record's "is_active" value
+ * @method NewsletterEmail setIsOriginal()  Sets the current record's "is_original" value
  * 
  * @package    mendozaoferta
  * @subpackage model
@@ -30,6 +33,10 @@ abstract class BaseNewsletterEmail extends sfDoctrineRecord
              'length' => '255',
              ));
         $this->hasColumn('is_active', 'boolean', null, array(
+             'type' => 'boolean',
+             'default' => 1,
+             ));
+        $this->hasColumn('is_original', 'boolean', null, array(
              'type' => 'boolean',
              'default' => 1,
              ));

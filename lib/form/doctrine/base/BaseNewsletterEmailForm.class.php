@@ -15,15 +15,17 @@ abstract class BaseNewsletterEmailForm extends BaseFormDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'id'        => new sfWidgetFormInputHidden(),
-      'email'     => new sfWidgetFormInputText(),
-      'is_active' => new sfWidgetFormInputCheckbox(),
+      'id'          => new sfWidgetFormInputHidden(),
+      'email'       => new sfWidgetFormInputText(),
+      'is_active'   => new sfWidgetFormInputCheckbox(),
+      'is_original' => new sfWidgetFormInputCheckbox(),
     ));
 
     $this->setValidators(array(
-      'id'        => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'id', 'required' => false)),
-      'email'     => new sfValidatorString(array('max_length' => 255)),
-      'is_active' => new sfValidatorBoolean(array('required' => false)),
+      'id'          => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'id', 'required' => false)),
+      'email'       => new sfValidatorString(array('max_length' => 255)),
+      'is_active'   => new sfValidatorBoolean(array('required' => false)),
+      'is_original' => new sfValidatorBoolean(array('required' => false)),
     ));
 
     $this->validatorSchema->setPostValidator(
