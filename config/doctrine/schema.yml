@@ -45,21 +45,21 @@ Deal:
     is_oferton: { type: boolean,   default: 0}
     has_yapa: { type: boolean,   default: 0}
     category_id:  { type: integer }
-    seller_id:  { type: integer}
-    store_id:  { type: integer}
-    quarter_id:  { type: integer}
+    seller_id:  { type: integer, notnull: true }
+    store_id:  { type: integer, notnull: true }
+    quarter_id:  { type: integer, notnull: true }
     starts_at:   { type: timestamp, notnull: true }
     ends_at:   { type: timestamp, notnull: true }
     bought_count:   { type: integer, notnull: true }
     visited_count:   { type: integer, notnull: true }
     printed_count:   { type: integer, notnull: true }
-    commission:  integer
-    offer:  integer
-    published_value:  integer
-    real_value:  integer
+    commission:  { type: integer, notnull: true }
+    offer:  { type: integer, notnull: true }
+    published_value:  { type: integer, notnull: true }
+    real_value:  { type: integer, notnull: true }
     image:  { type: string(255) }
     title:  { type: string(255), notnull: true }
-    newsletter_title:  { type: string(50) }
+    newsletter_title:  { type: string(50), notnull: true }
     featured: { type: string(4000), notnull: true }
     conditions: { type: string(4000), notnull: true }
     description:  { type: string(4000), notnull: true }
@@ -88,6 +88,8 @@ Payment:
       foreignType: many
       local: user_id
       onDelete: CASCADE
+    Deal:
+      onDelete: CASCADE
       
 NewsletterEmail:
   columns:
@@ -98,6 +100,10 @@ NewsletterEmail:
     is_active:
       type: boolean
       default: 1
+    is_original:
+      type: boolean
+      default: 1
+      
 
 NewsletterMessage:
   actAs: { Timestampable: ~ }
@@ -110,5 +116,5 @@ NewsletterMessage:
     offset_i:   { type: integer, notnull: true }
     recipients_count:   { type: integer, notnull: true }
     sent_count:   { type: integer, notnull: true }
-    is_active: { type: boolean}
+    is_active: { type: boolean, default: 0}
       

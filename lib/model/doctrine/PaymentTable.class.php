@@ -18,7 +18,7 @@ class PaymentTable extends Doctrine_Table
   public function getUserPayments($user_id)
   {
     $q = $this->createQuery('p')
-      ->where('p.status = ?', 'C')
+      //->where('p.status = ?', 'C')
       ->andWhere('p.user_id = ?', $user_id)
       ->orderby('p.updated_at desc');
     return $q->execute();
