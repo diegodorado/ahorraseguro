@@ -11,10 +11,19 @@ class usersActions extends sfActions
       $this->form->bind($request->getParameter('sf_guard_user'));
       if ($this->form->isValid()){
         $this->form->save();
-   
-        $this->getUser()->signIn($this->form->getObject());
-        //todo: send mail!
-        
+        $user = $this->form->getObject();
+        $this->getUser()->signIn($user);
+
+        $mailBody = $this->getPartial('mails/register');
+        $message = Swift_Message::newInstance()
+          ->setFrom(array(sfConfig::get('app_from_email')=>sfConfig::get('app_from_fullname')))
+          ->setSubject('Gracias por Registrate en ahorraseguro.com.ar')
+          ->setBody($mailBody)
+          ->setContentType("text/html")
+          ->setTo($user->getEmail())
+        ;
+        $this->getMailer()->send($message);
+
         $this->redirect($request->getParameter('referer', '@homepage'));
       }
     }

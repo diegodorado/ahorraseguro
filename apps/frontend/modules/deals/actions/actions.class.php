@@ -21,21 +21,6 @@ class dealsActions extends sfActions
       $this->redirect('@homepage?ref=logo');  
     }
 
-    if($request->hasParameter('test')){
-      $mailBody = $this->getPartial('mails/register');
-
-
-      $message = Swift_Message::newInstance()
-        ->setFrom(array(sfConfig::get('app_from_email')=>sfConfig::get('app_from_fullname')))
-        ->setSubject('Gracias por Registrate en ahorraseguro.com.ar')
-        ->setBody($mailBody)
-        ->setContentType("text/html")
-        ->setTo('diegodorado@gmail.com')
-      ;
-      $this->getMailer()->send($message);
-    }
-
-  
     $this->ref = $request->getParameter('ref');
     $this->title = 'Ofertones de hoy';
     $this->deals = Doctrine_Core::getTable('Deal')->getBigDeals();  
