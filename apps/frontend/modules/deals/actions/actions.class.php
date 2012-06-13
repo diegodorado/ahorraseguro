@@ -20,6 +20,17 @@ class dealsActions extends sfActions
     if($this->getUser()->isFirstVisit() && !$request->hasParameter('ref')){
       $this->redirect('@homepage?ref=logo');  
     }
+
+    if($request->hasParameter('test')){
+      $mailBody = $this->getPartial('mails/register', array('name' => 'John Doe'));
+      $this->getMailer()->composeAndSend(
+        array(sfConfig::get('app_from_email')=>sfConfig::get('app_from_fullname')),
+        'diegodorado@gmail.com',
+        'Gracias por Registrate en ahorraseguro.com.ar',
+        $mailBody
+      );    
+    }
+
   
     $this->ref = $request->getParameter('ref');
     $this->title = 'Ofertones de hoy';

@@ -39,8 +39,7 @@ EOF;
     $big_deals = Doctrine_Core::getTable('Deal')->getTodayBigDeals();
     $deals = Doctrine_Core::getTable('Deal')->getTodayDeals();
 
-    if (false){
-    //if (count($big_deals)){
+    if (count($big_deals)){
       
       $html = get_partial('mails/newsletter', array('base_url'=>'http://ahorraseguro.com.ar','big_deals'=>$big_deals, 'deals'=>$deals));
       $titles = array();
@@ -49,6 +48,7 @@ EOF;
       }
 
       //just in case...disable last active message
+      //todo: use an update query.. do not fetch it
       $nm = Doctrine_Core::getTable('NewsletterMessage')->getActive();
       if($nm){
         $nm->is_active = false;
