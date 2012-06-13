@@ -18,6 +18,16 @@ class myUser extends sfGuardSecurityUser
     return $this->getAttribute('payment');
   }
 
+  public function isFirstVisit()
+  {
+    $visited = $this->hasAttribute('visited');
+    if (!$visited) {
+      $this->setAttribute('visited',true);
+    }
+    return !$visited;
+  }
+
+
   public function hasPrinted($printed = null)
   {
     $today = strtotime(date('Y-m-d'));

@@ -17,8 +17,13 @@ class dealsActions extends sfActions
   */
   public function executeIndex(sfWebRequest $request)
   {
-     $this->title = 'Ofertones de hoy';
-     $this->deals = Doctrine_Core::getTable('Deal')->getBigDeals();  
+    if($this->getUser()->isFirstVisit() && !$request->hasParameter('ref')){
+      $this->redirect('@homepage?ref=logo');  
+    }
+  
+    $this->ref = $request->getParameter('ref');
+    $this->title = 'Ofertones de hoy';
+    $this->deals = Doctrine_Core::getTable('Deal')->getBigDeals();  
   }
 
   public function executeDeals(sfWebRequest $request)

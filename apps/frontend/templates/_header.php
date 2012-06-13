@@ -1,5 +1,5 @@
 <div id="header">
- 	<h1 class="logo"><?=link_to(image_tag('logo.png', array('alt'=>'Ahorra Seguro')),'@homepage')?></h1>
+ 	<h1 class="logo"><?=link_to(image_tag('logo.png', array('alt'=>'Ahorra Seguro')),'@homepage?ref=logo')?></h1>
   <ul class="menu">
     <li><?=link_to('OFERTONES','@big_deals')?></li>
     <li>
