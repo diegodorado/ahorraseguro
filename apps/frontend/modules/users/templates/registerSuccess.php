@@ -10,15 +10,11 @@
 <?php end_slot() ?>
 <div class="content">
   <h1>Registro</h1>
-  
-  
- 	<?=image_tag('register-header.jpg')?>
-  
+ 	<?=image_tag('banners/register-header.jpg')?>
   <form method="POST" class="simple">
     <?php echo $form ?>
     <div class="form-row botones">
       <input value="Crear mi Cuenta" name="enviar" class="submit" type="submit">
     </div>    
   </form>
-  
 </div>

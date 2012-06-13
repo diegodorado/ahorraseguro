@@ -34,6 +34,10 @@ newsletter_email:
     column:               id
     with_wildcard_routes: true
 
+upload_emails:
+  url:   /upload_emails
+  param: { module: newsletter_email, action: upload }
+
 newsletter_message:
   class: sfDoctrineRouteCollection
   options:

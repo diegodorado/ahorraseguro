@@ -13,20 +13,36 @@ class usersActions extends sfActions
         $this->form->save();
    
         $this->getUser()->signIn($this->form->getObject());
+        //todo: send mail!
+        
         $this->redirect($request->getParameter('referer', '@homepage'));
       }
     }
   }
 
   public function executeSuscribe(sfWebRequest $request) {
-		$this->form = new userSuscriptionForm;
-    $this->form->bind($request->getParameter('newsletter_email'));
-    if ($this->form->isValid()){
-      $this->form->save();
-      $this->getUser()->setFlash('notice', sprintf('Te suscribiste correctamente a nuestro newsletter utilizando el siguiente correo electrónico:  %s .', $this->form->getObject()->getEmail()));
+    $params =  $request->getParameter('newsletter_email');
+    $ne = Doctrine_Query::create()
+      ->from('NewsletterEmail')
+      ->where('email = ?',$params['email'])
+      ->fetchOne();
+
+    if($ne && !$ne->getIsOriginal()){
+      //means it was loaded from backend
+      $ne->setIsOriginal(true);
+      $ne->save();
+      $this->getUser()->setFlash('notice', sprintf('Te suscribiste correctamente a nuestro newsletter utilizando el siguiente correo electrónico:  %s .', $ne->getEmail()));
     }else{
-      $this->getUser()->setFlash('error', $this->form['email']->getError());
+		  $this->form = new userSuscriptionForm;
+      $this->form->bind($params);
+      if ($this->form->isValid()){
+        $this->form->save();
+        $this->getUser()->setFlash('notice', sprintf('Te suscribiste correctamente a nuestro newsletter utilizando el siguiente correo electrónico:  %s .', $this->form->getObject()->getEmail()));
+      }else{
+        $this->getUser()->setFlash('error', $this->form['email']->getError());
+      }
     }
+    
 
     $this->redirect('@homepage');
   }
