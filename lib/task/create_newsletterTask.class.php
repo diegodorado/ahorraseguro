@@ -39,7 +39,8 @@ EOF;
     $big_deals = Doctrine_Core::getTable('Deal')->getTodayBigDeals();
     $deals = Doctrine_Core::getTable('Deal')->getTodayDeals();
 
-    if (count($big_deals)){
+    if (false){
+    //if (count($big_deals)){
       
       $html = get_partial('mails/newsletter', array('base_url'=>'http://ahorraseguro.com.ar','big_deals'=>$big_deals, 'deals'=>$deals));
       $titles = array();
