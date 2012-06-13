@@ -22,13 +22,17 @@ class dealsActions extends sfActions
     }
 
     if($request->hasParameter('test')){
-      $mailBody = $this->getPartial('mails/register', array('name' => 'John Doe'));
-      $this->getMailer()->composeAndSend(
-        array(sfConfig::get('app_from_email')=>sfConfig::get('app_from_fullname')),
-        'diegodorado@gmail.com',
-        'Gracias por Registrate en ahorraseguro.com.ar',
-        $mailBody
-      );    
+      $mailBody = $this->getPartial('mails/register');
+
+
+      $message = Swift_Message::newInstance()
+        ->setFrom(array(sfConfig::get('app_from_email')=>sfConfig::get('app_from_fullname')))
+        ->setSubject('Gracias por Registrate en ahorraseguro.com.ar')
+        ->setBody($mailBody)
+        ->setContentType("text/html")
+        ->setTo('diegodorado@gmail.com')
+      ;
+      $this->getMailer()->send($message);
     }
 
   
