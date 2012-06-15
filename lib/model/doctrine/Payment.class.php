@@ -55,8 +55,18 @@ EOF;
                     $this->getSaved()*$this->getQuantity(),
                     $this->getPrice()*$this->getQuantity(),
                     $this->getCode());
+
+/*
     sfContext::getInstance()->getMailer()->composeAndSend(
       array(sfConfig::get('app_from_email')=>sfConfig::get('app_from_fullname')),
+      $user->getEmail(),
+      'Tu compra por '.$deal->getTitle(),
+      $body
+    );
+*/
+
+    sfContext::getInstance()->getMailer()->composeAndSend(
+      array('ventas@ahorraseguro.com.ar'=>'Ahorra Seguro'),
       $user->getEmail(),
       'Tu compra por '.$deal->getTitle(),
       $body
