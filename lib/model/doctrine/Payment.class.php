@@ -65,17 +65,18 @@ EOF;
     );
 */
 
-    sfContext::getInstance()->getMailer()->composeAndSend(
-      array('ventas@ahorraseguro.com.ar'=>'Ahorra Seguro'),
-      $user->getEmail(),
-      'Tu compra por '.$deal->getTitle(),
-      $body
-    );
 
+    $message = Swift_Message::newInstance()
+      ->setFrom(array('ventas@ahorraseguro.com.ar'=>'Ahorra Seguro'))
+      ->setSubject('Tu compra por '.$deal->getTitle())
+      ->setBody($body)
+      ->setContentType("text/html")
+      ->setTo($user->getEmail())
+    ;
+
+    sfContext::getInstance()->getMailer()->send($message);
   
     $this->save();
-  
-  
   
   } 
 
