@@ -13,4 +13,13 @@ require_once dirname(__FILE__).'/../lib/paymentGeneratorHelper.class.php';
  */
 class paymentActions extends autoPaymentActions
 {
+
+  public function executeComplete(sfWebRequest $request) {
+    $payment = Doctrine_Core::getTable('Payment')->find($request->getParameter('id'));
+    $payment->complete();
+    //$this->getUser()->setFlash('notice', 'Estas previsualizando una oferta.');
+    //$this->redirect('/oferta/'.$deal_id);
+  }
+
+
 }

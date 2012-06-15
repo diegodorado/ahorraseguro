@@ -28,17 +28,30 @@ all:
           Ofertas:
             url:    deal
             image:        addedit.png
-          Pagos:
-            url:    payment
-            image:        addedit.png
       Usuarios:
         items:
           Usuarios:
             url:          sf_guard_user
             image:        users.png
+      Compras:
+        items:
+          "Compras de Usuarios":
+            url:    payment
+            image:        addedit.png
+          "Consultar Dineromail":
+            url:    dineromail_pays
       Newsletter:
         items:
           Suscriptos:
             url:    newsletter_email            
           Mensajes:
             url:    newsletter_message
+  dineromail:
+    ipn_url: https://argentina.dineromail.com/Vender/ConsultaPago.asp
+    ipn_params:
+      Email: ventas@ahorraseguro.com.ar
+      Acount: 27906883
+      Pin: 44WFM0ESJM
+      StartDate: 20120601
+      EndDate: 20120701
+      XML: 1

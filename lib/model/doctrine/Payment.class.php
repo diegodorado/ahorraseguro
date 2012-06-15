@@ -13,4 +13,61 @@
 class Payment extends BasePayment
 {
 
+
+  function complete() {
+  
+  
+    $deal = $this->getDeal();
+    $user = $this->getUser();
+    
+    $deal->increaseBought();
+    $this->setStatus('C');
+
+    sfContext::getInstance()->getMailer()->composeAndSend(
+      array(sfConfig::get('app_from_email')=>sfConfig::get('app_from_fullname')),
+      sfConfig::get('app_from_email'),
+      'Han realizado una compra por '.$deal->getTitle(),
+      sprintf('%s ha realizado una compra de $%s por %s.', $user->getUsername(),$this->getPrice(),$deal->getTitle())
+    );    
+
+    $body = <<<EOF
+Hemos recibido tu pago por %s.<br/>
+<br/>
+Fecha de compra: %s<br/>
+Cantidad comprada: %s<br/>
+Importe Real: $%s<br/>
+Descuento: $%s<br/>
+Importe Final: $%s<br/>
+------------------------<br/>
+Nro de Referencia: %s<br/>
+<br/>
+<br/>
+-------------------------<br/>
+Puedes imprimir este email para utilizar tu descuento.<br/>
+También estará accesible desde nuestro sitio ingresando a "MI CUENTA"
+EOF;
+
+    $body = sprintf($body,
+                    $deal->getTitle(),
+                    $this->getDateTimeObject('updated_at')->format('d/m/Y'),
+                    $this->getQuantity(),
+                    $this->getRealValue()*$this->getQuantity(),
+                    $this->getSaved()*$this->getQuantity(),
+                    $this->getPrice()*$this->getQuantity(),
+                    $this->getCode());
+    sfContext::getInstance()->getMailer()->composeAndSend(
+      array(sfConfig::get('app_from_email')=>sfConfig::get('app_from_fullname')),
+      $user->getEmail(),
+      'Tu compra por '.$deal->getTitle(),
+      $body
+    );
+
+  
+    $this->save();
+  
+  
+  
+  } 
+
+
 }

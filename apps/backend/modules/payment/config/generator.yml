@@ -31,6 +31,11 @@ generator:
         params: |
           <h4>%%=id%%</h4>
           <em>%%=status%%</em>
+        object_actions:
+          _edit: ~
+          _delete: ~
+          complete: {label: Completar, action: complete}
+          
       filter:
         display: [status, deal_id, user_id]
       form:    ~

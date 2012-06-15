@@ -20,8 +20,9 @@ all:
     
   dineromail:
     checkout_url: https://checkout.dineromail.com/CheckOut
+    email: ventas@ahorraseguro.com.ar
     checkout_params:
-      tool: cart
+      tool: button
       merchant: 2790688
       country_id: 1
       seller_name: ventas@ahorraseguro.com.ar
@@ -30,5 +31,4 @@ all:
       header_image: http://ahorraseguro.com.ar/images/dineromail_logo.png
       change_quantity: 0
       expanded_sale_detail: 1
-
-      
+      payment_method_available: all      

@@ -60,6 +60,13 @@ payment_error:
 
 
 
+payment_pending:
+  url:   /payment_pending/:id
+  class:    sfDoctrineRoute
+  param: { module: deals, action: paymentPending }
+  options:  { model: Payment, type: object }
+
+
 
 #contact
 contact_us:

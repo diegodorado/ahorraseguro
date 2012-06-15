@@ -84,13 +84,22 @@ class dealsActions extends sfActions
     $payment->setRealValue($deal->getRealValue());
     $payment->setStatus('P');
     $payment->save();
+    $payment->setCode(1000 + $payment->getId());
+    $payment->save();
     
     $this->getUser()->setPayment($payment->getId());
+
+    $user = $this->getUser()->getGuardUser();
+    
     $parameters = array(
       'ok_url'=>$this->generateUrl('payment_ok', $payment, true),
       'error_url'=>$this->generateUrl('payment_error', $payment, true),
-      'buyer_name'=>$this->getUser()->getUsername(),
-      'buyer_email'=>$this->getUser()->getEmail(),
+      'pending_url'=>$this->generateUrl('payment_pending', $payment, true),
+      'buyer_name'=>$user->getFirstName(),
+      'buyer_lastname'=>$user->getLastName(),
+      'buyer_document_type'=>'DNI',
+      'buyer_email'=>$user->getEmail(),
+      'transaction_id' =>$payment->getId(),
       'item_quantity_1'=>$payment->getQuantity(),
       'item_name_1'=>$deal->getTitle(),
       'item_ammount_1'=> $payment->getPrice()*100,
@@ -113,51 +122,7 @@ class dealsActions extends sfActions
 
     //all right, can continue
     $this->getUser()->clearPayment();
-    $deal = $payment->getDeal();
-    $deal->increaseBought();
-    $payment->setStatus('C');
-    $payment->setCode(1000 + $payment->getId());
-    $payment->save();
-
-    $this->getMailer()->composeAndSend(
-      array(sfConfig::get('app_from_email')=>sfConfig::get('app_from_fullname')),
-      sfConfig::get('app_from_email'),
-      'Han realizado una compra por '.$deal->getTitle(),
-      sprintf('%s ha realizado una compra de $%s por %s.', $this->getUser()->getUsername(),$payment->getPrice(),$deal->getTitle())
-    );    
-
-    $body = <<<EOF
-Hemos recibido tu pago por %s.<br/>
-<br/>
-Fecha de compra: %s<br/>
-Cantidad comprada: %s<br/>
-Importe Real: $%s<br/>
-Descuento: $%s<br/>
-Importe Final: $%s<br/>
-------------------------<br/>
-Nro de Referencia: %s<br/>
-<br/>
-<br/>
--------------------------<br/>
-Puedes imprimir este email para utilizar tu descuento.<br/>
-También estará accesible desde nuestro sitio ingresando a "MI CUENTA"
-EOF;
-
-    $body = sprintf($body,
-                    $deal->getTitle(),
-                    $payment->getDateTimeObject('updated_at')->format('d/m/Y'),
-                    $payment->getQuantity(),
-                    $payment->getRealValue()*$payment->getQuantity(),
-                    $payment->getSaved()*$payment->getQuantity(),
-                    $payment->getPrice()*$payment->getQuantity(),
-                    $payment->getCode());
-    $this->getMailer()->composeAndSend(
-      array(sfConfig::get('app_from_email')=>sfConfig::get('app_from_fullname')),
-      $this->getUser()->getEmail(),
-      'Tu compra por '.$deal->getTitle(),
-      $body
-    );
-
+    $payment->complete();
 
     $this->getUser()->setFlash('notice', sprintf('Hemos recibido tu pago por %s. Te hemos enviado un email con el cupon a %s. Revisa tu casilla.', $deal->getTitle(),$this->getUser()->getEmail()));
     $this->redirect($this->generateUrl('deal', $deal));
@@ -176,6 +141,23 @@ EOF;
     $payment->setStatus('E');
     $payment->save();
     $this->getUser()->setFlash('error', sprintf('Has cancelado tu compra por %s. Puedes intentarlo de nuevo si quieres.', $deal->getTitle()));
+    $this->redirect($this->generateUrl('deal', $deal));
+
+  }
+
+
+  public function executePaymentPending(sfWebRequest $request)
+  {
+    //todo: falta chequear que pasa si el usuario cerró sesión.... mejorar el metodo de verificacion
+    $payment = Doctrine_Core::getTable('Payment')->find($request->getParameter('id'));
+    //forward404Unless payment found
+    $this->forward404Unless($payment);
+    //all right, can continue
+    $this->getUser()->clearPayment();
+    $deal = $payment->getDeal();
+    $payment->setStatus('P');
+    $payment->save();
+    $this->getUser()->setFlash('notice', sprintf('Tu compra por %s se encuentra en estado PENDIENTE. Una vez que hayamos registrado tu pago, recibirás tu cupón por email. Gracias!', $deal->getTitle()));
     $this->redirect($this->generateUrl('deal', $deal));
 
   }
