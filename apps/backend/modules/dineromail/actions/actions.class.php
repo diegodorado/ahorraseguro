@@ -16,23 +16,11 @@ class dineromailActions extends sfActions
   * @param sfRequest $request A request object
   */
 
-
-  function toArray($xml) {
-        $array = json_decode(json_encode($xml), TRUE);
-        
-        foreach ( array_slice($array, 0) as $key => $value ) {
-            if ( empty($value) ) $array[$key] = NULL;
-            elseif ( is_array($value) ) $array[$key] = toArray($value);
-        }
-
-        return $array;
-    }
-      
   public function executePays(sfWebRequest $request)
   {
   
 
-
+/*
     $b = new sfWebBrowser();
     //$b->get(XML_SOURCE_URL);
     //$xmlstr = $b->getResponseText();
@@ -84,7 +72,7 @@ $content = isset($result[1]) ? $result[1] : '';
 // imprime el content del resultado del request
 print $content;
 die;
-
+*/
 
 
     $parameters = array(
@@ -97,9 +85,6 @@ die;
     $this->pays = $xml->Pays[0];
 
 
-    
-    
-    //$this->redirect($url);
   
   }
 }
