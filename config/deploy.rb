@@ -19,19 +19,28 @@ role :db,         domain, :primary => true       # This is where Rails migration
 
 set  :keep_releases,  5
 
-before "deploy:update" do
-  database.dump.remote
-end
+#before "deploy:update" do
+#  database.dump.remote
+#end
 
 after "deploy:finalize_update" do
   run "chown -R ahorras:ahorras #{latest_release}"
   run "chmod 755 #{latest_release}"
   run "chmod 755 #{latest_release}/web"
   run "chmod 644 #{latest_release}/web/*.php"
-  symfony.orm.migrate
+  #symfony.orm.migrate
   #run "sudo chmod -R 777 #{latest_release}/#{cache_path}"
 end
 
+
+namespace :db do
+  task :dump do
+    database.dump.remote
+  end
+  task :migrate do
+    symfony.orm.migrate
+  end
+end
 
 
 

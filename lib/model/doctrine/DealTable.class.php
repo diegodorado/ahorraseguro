@@ -146,20 +146,41 @@ class DealTable extends Doctrine_Table
   {
     $q = $this->createQuery('d')
       ->where('d.starts_at >= ?', date('Y-m-d H:i:s', mktime(0, 0, 0, date("m") , date("d")+1, date("Y"))))
-      ->andWhere('d.starts_at < ?', date('Y-m-d H:i:s', mktime(0, 0, 0, date("m") , date("d")+2, date("Y"))))
+      ->andWhere('d.starts_at <= ?', date('Y-m-d H:i:s', mktime(0, 0, 0, date("m") , date("d")+2, date("Y"))))
       ->andWhere('d.is_oferton = ?', true)
+      ->limit(14)
       ->orderBy('d.starts_at ASC');
     return $q->execute();
   }
 
   public function getTodayDeals()
   {
+    /*
     $q = $this->createQuery('d')
       ->where('d.starts_at < ?', date('Y-m-d H:i:s', mktime(0, 0, 0, date("m") , date("d")+1, date("Y"))))
       ->andWhere('d.ends_at > ?', date('Y-m-d H:i:s', mktime(0, 0, 0, date("m") , date("d")+1, date("Y"))))
+      ->andWhere('(select count(*) from Deal d2 where d2.category_id = d.category_id and d2.offer <= d.offer) <= ?', 2)
       ->andWhere('d.is_oferton = ?', false)
       ->orderBy('d.starts_at ASC');
+      */
+    $q = Doctrine_Manager::getInstance()->getCurrentConnection();
+    $results = $q->execute(sprintf("
+      select d.id from deal d
+      where d.ends_at >= '%s'
+      and (select count(d2.id) from deal d2 where d2.category_id = d.category_id and d2.offer <= d.offer) <=  2
+      and d.is_oferton = false
+      order by d.category_id
+      limit 24
+    ", date('Y-m-d H:i:s', mktime(0, 0, 0, date("m") , date("d")+1, date("Y"))) ));
+
+    $ids = array();
+    foreach($results as $r){
+      $ids[]= $r['id'];
+    }
+    $q = $this->createQuery('d')->whereIn('d.id', $ids);
+    
     return $q->execute();
+
   }
 
 

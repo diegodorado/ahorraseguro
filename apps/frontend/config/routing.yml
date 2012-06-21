@@ -132,3 +132,9 @@ user_edit_account:
 user_change_password:
   url:   /user_change_password
   param: { module: users, action: changePassword }
+  
+#mails
+mail_test:
+  url:   /mail_test
+  param: { module: mails, action: index }
+

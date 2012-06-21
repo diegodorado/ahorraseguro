@@ -62,6 +62,7 @@ EOF;
         $failedRecipients = null;
         if ($mailer->send($message, $failedRecipients)){
           $nm->sent_count++;    
+          $nm->save();
         }
       }
       
@@ -73,7 +74,6 @@ EOF;
       //log to symfony? do not log at all?
       //$nm->body .= '<pre>'.htmlentities($logger->dump()).'</pre>';
       
-      $nm->save();
     }
     
 
