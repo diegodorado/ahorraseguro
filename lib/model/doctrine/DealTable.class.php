@@ -155,8 +155,8 @@ class DealTable extends Doctrine_Table
   public function getTodayDeals()
   {
     $q = $this->createQuery('d')
-      ->where('d.starts_at >= ?', date('Y-m-d H:i:s', mktime(0, 0, 0, date("m") , date("d")+1, date("Y"))))
-      ->andWhere('d.starts_at < ?', date('Y-m-d H:i:s', mktime(0, 0, 0, date("m") , date("d")+2, date("Y"))))
+      ->where('d.starts_at < ?', date('Y-m-d H:i:s', mktime(0, 0, 0, date("m") , date("d")+1, date("Y"))))
+      ->andWhere('d.ends_at > ?', date('Y-m-d H:i:s', mktime(0, 0, 0, date("m") , date("d")+1, date("Y"))))
       ->andWhere('d.is_oferton = ?', false)
       ->orderBy('d.starts_at ASC');
     return $q->execute();

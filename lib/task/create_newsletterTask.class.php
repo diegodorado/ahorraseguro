@@ -73,7 +73,21 @@ EOF;
       $nm->recipients_count = $total;
       $nm->sent_count = 0;    
       $nm->is_active = 1;
-      $nm->save();    
+      //$nm->save();    
+
+
+      $message = Swift_Message::newInstance()
+        ->setFrom(array($nm->from_email => $nm->from_name))
+        ->setSubject($nm->subject)
+        ->setBody($nm->body)
+        ->setTo('diego@cooperativahormigon.com.ar')
+        ->setContentType("text/html")
+      ;
+
+      $this->getMailer()->send($message);
+      
+
+
 
     }else{
       echo "No hay Ofertones para crear el newsletter\n";
