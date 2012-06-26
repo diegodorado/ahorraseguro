@@ -23,7 +23,7 @@ class paymentsActions extends sfActions
   public function executeIpn_notification(sfWebRequest $request)
   {
   
-    $mailBody = var_export($_POST);
+    $mailBody = var_export($_POST, true);
     $message = Swift_Message::newInstance()
       ->setFrom(array(sfConfig::get('app_from_email')=>sfConfig::get('app_from_fullname')))
       ->setSubject('ipn test')
