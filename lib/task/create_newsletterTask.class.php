@@ -80,10 +80,12 @@ EOF;
         ->setFrom(array($nm->from_email => $nm->from_name))
         ->setSubject($nm->subject)
         ->setBody($nm->body)
-        ->setTo('diego@cooperativahormigon.com.ar')
-        ->setContentType("text/html")
+        ->setTo('angelcrego@gmail.com,diego@cooperativahormigon.com.ar')
       ;
 
+      $this->getMailer()->send($message);
+
+      $message->setContentType("text/html");
       $this->getMailer()->send($message);
       
 

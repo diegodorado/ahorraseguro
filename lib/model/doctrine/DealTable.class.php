@@ -146,15 +146,24 @@ class DealTable extends Doctrine_Table
   {
     $q = $this->createQuery('d')
       ->where('d.starts_at >= ?', date('Y-m-d H:i:s', mktime(0, 0, 0, date("m") , date("d")+1, date("Y"))))
-      ->andWhere('d.starts_at <= ?', date('Y-m-d H:i:s', mktime(0, 0, 0, date("m") , date("d")+2, date("Y"))))
+      ->andWhere('d.starts_at < ?', date('Y-m-d H:i:s', mktime(0, 0, 0, date("m") , date("d")+2, date("Y"))))
       ->andWhere('d.is_oferton = ?', true)
-      ->limit(14)
-      ->orderBy('d.starts_at ASC');
+      ->limit(14);
     return $q->execute();
   }
 
   public function getTodayDeals()
   {
+
+
+    $q = $this->createQuery('d')
+      ->where('d.ends_at > ?', date('Y-m-d H:i:s', mktime(0, 0, 0, date("m") , date("d")+1, date("Y"))))
+      ->andWhere('d.is_oferton = ?', false)
+      ->limit(16)
+      ->orderBy('RAND()');
+    return $q->execute();
+
+
     /*
     $q = $this->createQuery('d')
       ->where('d.starts_at < ?', date('Y-m-d H:i:s', mktime(0, 0, 0, date("m") , date("d")+1, date("Y"))))
@@ -172,6 +181,8 @@ class DealTable extends Doctrine_Table
       order by d.category_id
       limit 24
     ", date('Y-m-d H:i:s', mktime(0, 0, 0, date("m") , date("d")+1, date("Y"))) ));
+
+    print_r($results);die;
 
     $ids = array();
     foreach($results as $r){
