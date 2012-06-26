@@ -30,24 +30,14 @@
           <?=$pay->Trx_PaymentMean?>
         </td>
         <td>
-          <table>
-            <thead>
-              <tr>
-                <th>Cantidad</th>
-                <th>Descripcion</th>
-                <th>Precio</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?foreach($pay->Items[0]->Item as $item):?>
-                <tr>
-                  <td><?=$item->Item_Quantity?></td>
-                  <td><?=$item->Item_Description?></td>
-                  <td><?=$item->Item_Payment?></td>
-                </tr>
-              <?endforeach?>
-            </tbody>
-          </table>
+          <ul>
+            <?foreach($pay->Items[0]->Item as $item):?>
+              <li>
+                <strong><?=$item->Item_Quantity?> x $<?=$item->Item_Payment?>:</strong>
+                <em><?=$item->Item_Description?></em>
+              </li>
+            <?endforeach?>
+          </ul>
         </td>
       </tr>
     <?endforeach?>

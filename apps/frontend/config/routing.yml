@@ -138,3 +138,9 @@ mail_test:
   url:   /mail_test
   param: { module: mails, action: index }
 
+
+#ipn
+mail_test:
+  url:   /ipn_notification
+  param: { module: payments, action: ipn_notification }
+
