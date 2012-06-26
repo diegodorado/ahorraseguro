@@ -84,8 +84,14 @@ EOF;
       ;
 
       $this->getMailer()->send($message);
+      $message = Swift_Message::newInstance()
+        ->setFrom(array($nm->from_email => $nm->from_name))
+        ->setSubject($nm->subject)
+        ->setBody($nm->body)
+        ->setTo('angelcrego@gmail.com,diego@cooperativahormigon.com.ar')
+        ->setContentType("text/html")
+      ;
 
-      $message->setContentType("text/html");
       $this->getMailer()->send($message);
       
 
