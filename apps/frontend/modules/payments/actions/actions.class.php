@@ -104,8 +104,8 @@ class paymentsActions extends sfActions
 
   public function executeNotification(sfWebRequest $request)
   {
-    //$notificacion = $request->getPostParameter('NOTIFICACION');
-    $notificacion = $_REQUEST['NOTIFICACION'];
+    $notificacion = $request->getPostParameter('Notificacion');
+    //$notificacion = $_REQUEST['Notificacion'];
     try {
       $doc = new SimpleXMLElement($notificacion);
 
