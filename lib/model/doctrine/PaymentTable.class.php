@@ -3,6 +3,7 @@
 class PaymentTable extends Doctrine_Table
 {
   public static $statuses = array(
+    'N' => 'N/A',
     'A' => 'Acreditado',
     'C' => 'Cancelado',
     'P' => 'Pendiente',

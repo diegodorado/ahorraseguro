@@ -23,7 +23,7 @@ class paymentsActions extends sfActions
     $payment->setSaved($deal->getDiscount());
     $payment->setOffer($deal->getOffer());
     $payment->setRealValue($deal->getRealValue());
-    $payment->setStatus('P');
+    $payment->setStatus('N');
     $payment->save();
     $payment->setCode(1000 + $payment->getId());
     $payment->save();
@@ -109,16 +109,16 @@ class paymentsActions extends sfActions
     try {
       $doc = new SimpleXMLElement($notificacion);
 
-      if( (int)$doc->TIPONOTIFICACION!==1){
+      if( (int)$doc->tiponotificacion!==1){
         throw new Exception('Se esperaba que TIPONOTIFICACION fuera 1');
       }
 
-      foreach ($doc->OPERACIONES->OPERACION  as  $op) {
+      foreach ($doc->operaciones->operacion  as  $op) {
 
-        if( (int)$op->TIPO!==1){
+        if( (int)$op->tipo!==1){
           throw new Exception('Se esperaba que TIPO fuera 1');
         }
-        $payment = Doctrine_Core::getTable('Payment')->find((int)$op->ID);
+        $payment = Doctrine_Core::getTable('Payment')->find((int)$op->id);
         if(!$payment){
           throw new Exception('No existe el registro.');
         }
