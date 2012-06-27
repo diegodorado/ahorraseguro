@@ -80,6 +80,15 @@ Payment:
     real_value:   { type: integer, notnull: true }
     saved:   { type: integer, notnull: true }
     code: integer
+    dm_bought_on: timestamp
+    dm_id: string
+    dm_amount: double
+    dm_net_amount: double
+    dm_method: integer
+    dm_medium: string
+    dm_installments: integer
+
+    
   relations:
     sfGuardUser:
       alias: User

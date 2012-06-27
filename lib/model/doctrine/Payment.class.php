@@ -13,72 +13,88 @@
 class Payment extends BasePayment
 {
 
+  public function friendly_status() {
+    return PaymentTable::$statuses[$this->getStatus()];
+  }
 
-  function complete() {
-  
-  
-    $deal = $this->getDeal();
-    $user = $this->getUser();
+  public function check_status() {
+  //checks payment status thru dineromail services
+
+    if ($this->isCompleted()){
+      //do not check if it is already completed
+      //also a workaround for manual old payments without transaction_id
+      return true;
+    }
+
+    //todo: put this sensitive data in a secure place
+    $url = 'http://argentina.dineromail.com/Vender/Consulta_IPN.asp';
+    $tmpl = 'DATA=<REPORTE><NROCTA>%s</NROCTA><DETALLE><CONSULTA><CLAVE>%s</CLAVE><TIPO>1</TIPO><OPERACIONES><ID>%s</ID></OPERACIONES></CONSULTA></DETALLE></REPORTE>';
+    $cuenta = '2790688';
+    $clave = 'Ipn123Ahorra';
+    $data = sprintf($tmpl,$cuenta,$clave,$this->getId());
+
+    $ch = curl_init($url);
+     
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+     
+    $response = curl_exec($ch);
+    curl_close($ch);
+
+    $doc = new SimpleXMLElement($response);
+
+
+    $values = array();
+
+
+    if ($doc->ESTADOREPORTE==1){
+      $op = $doc->DETALLE->OPERACIONES->OPERACION;
+
+      if ($this->getId() == (int)$op->ID){
+        $values = array_merge($values, array(
+          'dm_id' => (string)$op->NUMTRANSACCION,
+          'dm_bought_on' => date('Y-m-d H:i:s', strtotime($op->FECHA)),
+          'dm_amount' => (float)$op->MONTO,
+          'dm_net_amount' => (float)$op->MONTONETO,
+          'dm_method' => (int)$op->METODOPAGO,
+          'dm_medium' => (string)$op->MEDIOPAGO,
+          'dm_installments' => (int)$op->CUOTAS,
+          ));
+          
+        switch ((int)$op->ESTADO) {
+          case 1:
+            //PENDIENTE  DE  PAGO
+            $values['status'] = 'P';
+            break;
+          case 2:
+            //ACREDITADO
+            $values['status'] = 'A';
+            $this->getDeal()->increaseBought();
+            break;
+          case 3:
+            //CANCELADO
+            $values['status'] = 'C';
+            break;
+        }
+          
+      }else{
+        $values['status'] = 'E';
+      }
+
+    }elseif($doc->ESTADOREPORTE==8){
+      $values['status'] = 'E';
+    }
     
-    $deal->increaseBought();
-    $this->setStatus('C');
-
-    /*sfContext::getInstance()->getMailer()->composeAndSend(
-      array(sfConfig::get('app_from_email')=>sfConfig::get('app_from_fullname')),
-      sfConfig::get('app_from_email'),
-      'Han realizado una compra por '.$deal->getTitle(),
-      sprintf('%s ha realizado una compra de $%s por %s.', $user->getUsername(),$this->getPrice(),$deal->getTitle())
-    );*/    
-
-    $body = <<<EOF
-Hemos recibido tu pago por %s.<br/>
-<br/>
-Fecha de compra: %s<br/>
-Cantidad comprada: %s<br/>
-Importe Real: $%s<br/>
-Descuento: $%s<br/>
-Importe Final: $%s<br/>
-------------------------<br/>
-Nro de Referencia: %s<br/>
-<br/>
-<br/>
--------------------------<br/>
-Puedes imprimir este email para utilizar tu descuento.<br/>
-También estará accesible desde nuestro sitio ingresando a "MI CUENTA"
-EOF;
-
-    $body = sprintf($body,
-                    $deal->getTitle(),
-                    $this->getDateTimeObject('updated_at')->format('d/m/Y'),
-                    $this->getQuantity(),
-                    $this->getRealValue()*$this->getQuantity(),
-                    $this->getSaved()*$this->getQuantity(),
-                    $this->getPrice()*$this->getQuantity(),
-                    $this->getCode());
-
-/*
-    sfContext::getInstance()->getMailer()->composeAndSend(
-      array(sfConfig::get('app_from_email')=>sfConfig::get('app_from_fullname')),
-      $user->getEmail(),
-      'Tu compra por '.$deal->getTitle(),
-      $body
-    );
-*/
-
-
-    $message = Swift_Message::newInstance()
-      ->setFrom(array('ventas@ahorraseguro.com.ar'=>'Ahorra Seguro'))
-      ->setSubject('Tu compra por '.$deal->getTitle())
-      ->setBody($body)
-      ->setContentType("text/html")
-      ->setTo($user->getEmail())
-    ;
-
-    sfContext::getInstance()->getMailer()->send($message);
-  
+    $this->fromArray($values);
     $this->save();
+    return $this->isCompleted();
   
   } 
+
+  public function isCompleted() {
+    return ($this->getStatus()=='A');
+  }
 
 
 }

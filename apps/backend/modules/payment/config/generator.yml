@@ -15,9 +15,10 @@ generator:
     config:
       actions: ~
       fields:
+        created_at: { label: "Fecha" }
         status: { label: "Estado" }
-        deal_id: { label: "Oferta" }
-        user_id: { label: "Usuario" }
+        deal: { label: "Oferta" }
+        user: { label: "Usuario" }
         price: { label: "Precio" }
         offer: { label: "Porcentaje" }
         real_value: { label: "Valor Real" }
@@ -26,22 +27,10 @@ generator:
 
       list:
         title: Listado de Pagos
-        layout: stacked
-        display: [Pagos]
-        params: |
-          <h4>%%=id%%</h4>
-          <em>%%=status%%</em>
+        #layout: stacked
+        display: [id, status,created_at,code, price, deal, user]
         object_actions:
-          _edit: ~
-          _delete: ~
-          complete: {label: Completar, action: complete}
+          complete: {label: Comprobar, action: check}
           
       filter:
-        display: [status, deal_id, user_id]
-      form:    ~
-      edit:
-        title: Editar Pago
-      
-      new:
-        title: Nuevo Pago
-
+        display: [status, deal_id, user_id, created_at]

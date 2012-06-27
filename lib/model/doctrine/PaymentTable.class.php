@@ -3,7 +3,8 @@
 class PaymentTable extends Doctrine_Table
 {
   public static $statuses = array(
-    'C' => 'Completado',
+    'A' => 'Acreditado',
+    'C' => 'Cancelado',
     'P' => 'Pendiente',
     'E' => 'Error',
   );
@@ -18,7 +19,7 @@ class PaymentTable extends Doctrine_Table
   public function getUserPayments($user_id)
   {
     $q = $this->createQuery('p')
-      ->where('p.status = ?', 'C')
+      ->where('p.status = ?', 'A')
       ->andWhere('p.user_id = ?', $user_id)
       ->orderby('p.updated_at desc');
     return $q->execute();
@@ -27,7 +28,7 @@ class PaymentTable extends Doctrine_Table
   public function getDealPayments($deal_id)
   {
     $q = $this->createQuery('p')
-      ->where('p.status = ?', 'C')
+      ->where('p.status = ?', 'A')
       ->andWhere('p.deal_id = ?', $deal_id)
       ->orderby('p.updated_at desc');
     return $q->execute();

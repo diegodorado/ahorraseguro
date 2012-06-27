@@ -14,31 +14,52 @@
  * @property integer $real_value
  * @property integer $saved
  * @property integer $code
+ * @property timestamp $dm_bought_on
+ * @property string $dm_id
+ * @property double $dm_amount
+ * @property double $dm_net_amount
+ * @property integer $dm_method
+ * @property string $dm_medium
+ * @property integer $dm_installments
  * @property sfGuardUser $User
  * @property Deal $Deal
  * 
- * @method string      getStatus()     Returns the current record's "status" value
- * @method integer     getDealId()     Returns the current record's "deal_id" value
- * @method integer     getUserId()     Returns the current record's "user_id" value
- * @method integer     getQuantity()   Returns the current record's "quantity" value
- * @method integer     getPrice()      Returns the current record's "price" value
- * @method integer     getOffer()      Returns the current record's "offer" value
- * @method integer     getRealValue()  Returns the current record's "real_value" value
- * @method integer     getSaved()      Returns the current record's "saved" value
- * @method integer     getCode()       Returns the current record's "code" value
- * @method sfGuardUser getUser()       Returns the current record's "User" value
- * @method Deal        getDeal()       Returns the current record's "Deal" value
- * @method Payment     setStatus()     Sets the current record's "status" value
- * @method Payment     setDealId()     Sets the current record's "deal_id" value
- * @method Payment     setUserId()     Sets the current record's "user_id" value
- * @method Payment     setQuantity()   Sets the current record's "quantity" value
- * @method Payment     setPrice()      Sets the current record's "price" value
- * @method Payment     setOffer()      Sets the current record's "offer" value
- * @method Payment     setRealValue()  Sets the current record's "real_value" value
- * @method Payment     setSaved()      Sets the current record's "saved" value
- * @method Payment     setCode()       Sets the current record's "code" value
- * @method Payment     setUser()       Sets the current record's "User" value
- * @method Payment     setDeal()       Sets the current record's "Deal" value
+ * @method string      getStatus()          Returns the current record's "status" value
+ * @method integer     getDealId()          Returns the current record's "deal_id" value
+ * @method integer     getUserId()          Returns the current record's "user_id" value
+ * @method integer     getQuantity()        Returns the current record's "quantity" value
+ * @method integer     getPrice()           Returns the current record's "price" value
+ * @method integer     getOffer()           Returns the current record's "offer" value
+ * @method integer     getRealValue()       Returns the current record's "real_value" value
+ * @method integer     getSaved()           Returns the current record's "saved" value
+ * @method integer     getCode()            Returns the current record's "code" value
+ * @method timestamp   getDmBoughtOn()      Returns the current record's "dm_bought_on" value
+ * @method string      getDmId()            Returns the current record's "dm_id" value
+ * @method double      getDmAmount()        Returns the current record's "dm_amount" value
+ * @method double      getDmNetAmount()     Returns the current record's "dm_net_amount" value
+ * @method integer     getDmMethod()        Returns the current record's "dm_method" value
+ * @method string      getDmMedium()        Returns the current record's "dm_medium" value
+ * @method integer     getDmInstallments()  Returns the current record's "dm_installments" value
+ * @method sfGuardUser getUser()            Returns the current record's "User" value
+ * @method Deal        getDeal()            Returns the current record's "Deal" value
+ * @method Payment     setStatus()          Sets the current record's "status" value
+ * @method Payment     setDealId()          Sets the current record's "deal_id" value
+ * @method Payment     setUserId()          Sets the current record's "user_id" value
+ * @method Payment     setQuantity()        Sets the current record's "quantity" value
+ * @method Payment     setPrice()           Sets the current record's "price" value
+ * @method Payment     setOffer()           Sets the current record's "offer" value
+ * @method Payment     setRealValue()       Sets the current record's "real_value" value
+ * @method Payment     setSaved()           Sets the current record's "saved" value
+ * @method Payment     setCode()            Sets the current record's "code" value
+ * @method Payment     setDmBoughtOn()      Sets the current record's "dm_bought_on" value
+ * @method Payment     setDmId()            Sets the current record's "dm_id" value
+ * @method Payment     setDmAmount()        Sets the current record's "dm_amount" value
+ * @method Payment     setDmNetAmount()     Sets the current record's "dm_net_amount" value
+ * @method Payment     setDmMethod()        Sets the current record's "dm_method" value
+ * @method Payment     setDmMedium()        Sets the current record's "dm_medium" value
+ * @method Payment     setDmInstallments()  Sets the current record's "dm_installments" value
+ * @method Payment     setUser()            Sets the current record's "User" value
+ * @method Payment     setDeal()            Sets the current record's "Deal" value
  * 
  * @package    mendozaoferta
  * @subpackage model
@@ -84,6 +105,27 @@ abstract class BasePayment extends sfDoctrineRecord
              'notnull' => true,
              ));
         $this->hasColumn('code', 'integer', null, array(
+             'type' => 'integer',
+             ));
+        $this->hasColumn('dm_bought_on', 'timestamp', null, array(
+             'type' => 'timestamp',
+             ));
+        $this->hasColumn('dm_id', 'string', null, array(
+             'type' => 'string',
+             ));
+        $this->hasColumn('dm_amount', 'double', null, array(
+             'type' => 'double',
+             ));
+        $this->hasColumn('dm_net_amount', 'double', null, array(
+             'type' => 'double',
+             ));
+        $this->hasColumn('dm_method', 'integer', null, array(
+             'type' => 'integer',
+             ));
+        $this->hasColumn('dm_medium', 'string', null, array(
+             'type' => 'string',
+             ));
+        $this->hasColumn('dm_installments', 'integer', null, array(
              'type' => 'integer',
              ));
     }

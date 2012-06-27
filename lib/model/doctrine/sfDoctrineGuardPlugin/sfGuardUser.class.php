@@ -12,6 +12,13 @@
  */
 class sfGuardUser extends PluginsfGuardUser
 {
+
+
+  public function __toString()
+  {
+    return (string) $this->getName();
+  }
+
   public function getEmail() {
     return $this->getEmailAddress();
   }

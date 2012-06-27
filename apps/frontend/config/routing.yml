@@ -42,30 +42,32 @@ buy:
   param: { module: deals, action: checkout }
   options:  { model: Deal, type: object }
 
+#payments
 pay:
   url:   /pay
-  param: { module: deals, action: pay }
+  param: { module: payments, action: go }
 
 payment_ok:
   url:   /payment_ok/:id
   class:    sfDoctrineRoute
-  param: { module: deals, action: paymentOk }
+  param: { module: payments, action: ok }
   options:  { model: Payment, type: object }
 
 payment_error:
   url:   /payment_error/:id
   class:    sfDoctrineRoute
-  param: { module: deals, action: paymentError }
+  param: { module: payments, action: error }
   options:  { model: Payment, type: object }
-
-
 
 payment_pending:
   url:   /payment_pending/:id
   class:    sfDoctrineRoute
-  param: { module: deals, action: paymentPending }
+  param: { module: payments, action: pending }
   options:  { model: Payment, type: object }
 
+payment_notification:
+  url:   /ipn_notification
+  param: { module: payments, action: notification }
 
 
 #contact
@@ -137,10 +139,4 @@ user_change_password:
 mail_test:
   url:   /mail_test
   param: { module: mails, action: index }
-
-
-#ipn
-mail_test:
-  url:   /ipn_notification
-  param: { module: payments, action: ipn_notification }
 
