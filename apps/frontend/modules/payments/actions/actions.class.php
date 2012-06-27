@@ -84,12 +84,12 @@ class paymentsActions extends sfActions
       case 'P':
         //PENDIENTE  DE  PAGO
         $this->getUser()->setFlash('notice', sprintf('Tu compra por %s se encuentra en estado PENDIENTE. Una vez que hayamos registrado tu pago, recibirás tu cupón por email. Gracias!', $payment->getDeal()->getTitle()));
-        $this->redirect($this->generateUrl('deal', $deal));
+        $this->redirect($this->generateUrl('deal', $payment->getDeal()));
         break;
       case 'C':
         //CANCELADO
         $this->getUser()->setFlash('error', sprintf('Has cancelado tu compra por %s. Puedes intentarlo de nuevo si quieres.', $payment->getDeal()->getTitle()));
-        $this->redirect($this->generateUrl('deal', $deal));
+        $this->redirect($this->generateUrl('deal', $payment->getDeal()));
         break;
       case 'E':
         //ERROR
