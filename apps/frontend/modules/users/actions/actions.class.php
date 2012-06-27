@@ -91,7 +91,7 @@ class usersActions extends sfActions
       ->select('count(*) as deals_count, sum(quantity) as quantity_total,sum(price) as price_total,sum(saved) as saved_total,sum(real_value) as real_value_total,avg(offer) as offer_avg')
       ->from('payment')
       ->where('user_id=?',$user_id)
-      ->andWhere('status=?','C');
+      ->andWhere('status=?','A');
     $r = $q->execute(array(),Doctrine_Core::HYDRATE_ARRAY);
     $this->data = array(
       array('class'=>'', 'title'=>'Ofertas Realizadas','value'=>$r[0]['deals_count']),
