@@ -104,25 +104,7 @@ class paymentsActions extends sfActions
 
   public function executeNotification(sfWebRequest $request)
   {
-
-
-      $notificacion = $request->getPostParameter('NOTIFICACION');
-
-      $notificacion2 = <<<EOF
-<NOTIFICACION>
-  <TIPONOTIFICACION>1</TIPONOTIFICACION>
-  <OPERACIONES>
-    <OPERACION>
-      <TIPO>1</TIPO>
-      <ID>66</ID>
-    </OPERACION>
-    <OPERACION>
-      <TIPO>1</TIPO>
-      <ID>69</ID>
-    </OPERACION>
-  </OPERACIONES>
-</NOTIFICACION>
-EOF;
+    $notificacion = $request->getPostParameter('NOTIFICACION');
 
     try {
       $doc = new SimpleXMLElement($notificacion);
@@ -130,7 +112,6 @@ EOF;
       if( (int)$doc->TIPONOTIFICACION!==1){
         throw new Exception('Se esperaba que TIPONOTIFICACION fuera 1');
       }
-
 
       foreach ($doc->OPERACIONES->OPERACION  as  $op) {
 
