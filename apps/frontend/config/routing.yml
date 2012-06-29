@@ -136,7 +136,7 @@ user_change_password:
   param: { module: users, action: changePassword }
   
 #mails
-mail_test:
-  url:   /mail_test
+newsletter:
+  url:   /newsletter
   param: { module: mails, action: index }
 

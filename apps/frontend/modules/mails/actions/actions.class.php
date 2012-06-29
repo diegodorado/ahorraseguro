@@ -7,6 +7,7 @@ class mailsActions extends sfActions
   
     $this->big_deals = Doctrine_Core::getTable('Deal')->getTodayBigDeals();
     $this->deals = Doctrine_Core::getTable('Deal')->getTodayDeals();
+    $this->setLayout(false);
   }
  
 }

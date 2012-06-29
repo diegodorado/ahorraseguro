@@ -80,7 +80,8 @@ EOF;
         ->setFrom(array($nm->from_email => $nm->from_name))
         ->setSubject($nm->subject)
         ->setBody($nm->body)
-        ->setTo('angelcrego@gmail.com,diego@cooperativahormigon.com.ar')
+        ->setTo('angelcrego@gmail.com')
+        ->addTo('diego@cooperativahormigon.com.ar')
       ;
 
       $this->getMailer()->send($message);
@@ -88,7 +89,8 @@ EOF;
         ->setFrom(array($nm->from_email => $nm->from_name))
         ->setSubject($nm->subject)
         ->setBody($nm->body)
-        ->setTo('angelcrego@gmail.com,diego@cooperativahormigon.com.ar')
+        ->setTo('angelcrego@gmail.com')
+        ->addTo('diego@cooperativahormigon.com.ar')
         ->setContentType("text/html")
       ;
 
