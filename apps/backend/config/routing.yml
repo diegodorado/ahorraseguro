@@ -56,6 +56,11 @@ payment:
     column:               id
     with_wildcard_routes: true
 
+payment_feed:
+  url:   /payment_feed/:token
+  param: { module: payment, action: feed }
+
+
 deal:
   class: sfDoctrineRouteCollection
   options:

@@ -26,4 +26,20 @@ class paymentActions extends autoPaymentActions
   }
 
 
+  public function executeFeed(sfWebRequest $request) {
+    $token = $request->getParameter('token');
+    if($token == 'Ahorra123Token'){
+      return $this->renderText('ERROR!');
+    }else{
+      $q = Doctrine_Query::create()
+        ->select('quantity,price,saved,real_value,offer')
+        ->from('payment');
+      $r = $q->execute(array(),Doctrine_Core::HYDRATE_ARRAY);
+      return $this->renderText(json_encode($r));
+    }
+  }
+
+
+
+
 }

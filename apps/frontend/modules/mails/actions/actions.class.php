@@ -10,4 +10,11 @@ class mailsActions extends sfActions
     $this->setLayout(false);
   }
  
+  public function executeCoupon(sfWebRequest $request)
+  {
+  
+    $this->payment = Doctrine_Core::getTable('Payment')->getPayment(56);
+    $this->setLayout(false);
+  }
+
 }

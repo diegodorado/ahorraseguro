@@ -26,14 +26,24 @@ Filtros:
 Totales: Al final del listado muestra la suma de: La cantidad de ofertas listadas (ya han sido filtradas por , el total del valor publicado, comisión ahorraseguro (la suma que deriva del porcentaje APLICADO a cada oferta -dado de alta en cada oferta-), Valor a facturar: (valor publicado - el x% de la comisión de ahorraseguro cargada en cada Ofertón/Oferta)
 
 
+Para hacer miércoles/jueves) en las ofertas/ofertones colocar para cinco repeticiones 
+de fecha (marcando cada fecha de inicio y vencimiento) Al vencimiento la oferta/ofertón 
+se muestra con el filtro de (listado) de pasadas y en el de futuras. Si no tiene repeticiones 
+se muestra solo en el de pasadas.
 
-* Formulario de contacto para empresas. va al mail empresas@ahorraseguro.com.ar
-* Borrar las ofertas que aparecen en "ofertas pasadas" (no o puedo hacer.. da error)
-* El boletín tiene que comenzar a salir el miércoles (0Hs) con la cabecera que te adjunto.
-* pongo en el sitio (public_html/mails) los listados de mails para mandar el boletín. Será bueno colocarlo en un campo diferente al de los que se suscriben, de manera tal que no se mezclen. Hacete una rutina que haga que si el mail del que se acaba de suscribir está en el campo en el que están los mails subidos por nosotros, lo borre. Si es mucha presión para el MySql o el server, que lo haga todos los días a las cuatro de la mañana.
-* quienes somos cargar (te lo mandé por mail antes)
-* cambiar en como funciona
-* en el boletín las fotos direccionan a ahorraseguro.com.ar/deal/Nro_de_la_oferta los textos a /oferta/Nro_de_la_Oferta.
 
-Para hacer miércoles/jueves) en las ofertas/ofertones colocar para cinco repeticiones de fecha (marcando cada fecha de inicio y vencimiento) Al vencimiento la oferta/ofertón se muestra con el filtro de (listado) de pasadas y en el de futuras. Si no tiene repeticiones se muestra solo en el de pasadas.
+PD: quiero que nos juntemos a charlar. ¿cuando te parece? ¿podrías venirte hasta casa? 
 
+
+En el backend. Listado de ofertas. Filtro
+agregar filtro para visualizar por ofertones, ofertas, yapas, todos.
+agregar filtro para visualizar entre fechas de publicación 
+(el objetivo es visualizar por ejemplo los ofertones que saldrán mañana, 
+las ofertas que están por vencer, etc)
+
+
+DONE:
+
+- quitar http://mendozaoferta.cooph.com.ar/
+- borrar los 50000 que metimos en la DB
+- agregar datos del comercio en el envío del cupon

@@ -140,3 +140,7 @@ newsletter:
   url:   /newsletter
   param: { module: mails, action: index }
 
+mail_test:
+  url:   /mail_test/:action
+  param: { module: mails}
+

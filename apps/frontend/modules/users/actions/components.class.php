@@ -29,7 +29,7 @@ class usersComponents extends sfComponents
     $q = Doctrine_Query::create()
       ->select('count(*) as deals_count,sum(saved) as saved_total')
       ->from('payment')
-      ->andWhere('status=?','C');
+      ->andWhere('status=?','A');
     $r = $q->execute(array(),Doctrine_Core::HYDRATE_ARRAY);
     if ($r)
     {

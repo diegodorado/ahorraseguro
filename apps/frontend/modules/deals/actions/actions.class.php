@@ -28,6 +28,7 @@ class dealsActions extends sfActions
 
   public function executeDeals(sfWebRequest $request)
   {
+     $this->ref = '';
      $category_id = $request->getParameter('category_id');
      $quarter_id = $request->getParameter('quarter_id');
      $yapa = !!$request->getParameter('yapa');
