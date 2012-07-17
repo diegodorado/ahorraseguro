@@ -56,9 +56,9 @@ payment:
     column:               id
     with_wildcard_routes: true
 
-payment_feed:
-  url:   /payment_feed/:token
-  param: { module: payment, action: feed }
+payment_report:
+  url:   /payment_report
+  param: { module: payment, action: report }
 
 
 deal:

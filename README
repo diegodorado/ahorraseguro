@@ -2,13 +2,17 @@ En listado de pagos: cambiar el nombre de este ítem por "compras por clientes"
 
 Agregar un ítem "Asesores comerciales"
 
-Esto se utilizará para liquidar las comisiones a los vendedores y estudiar la eficacia de cada vendedor.
-A la derecha los filtros (tal cual los venis haciendo) a la izquierda muestra el listado en pantalla según los filtros seleccionados dando la posibilidad de imprimir directamente o bajar .csv)
+Esto se utilizará para liquidar las comisiones a los vendedores y 
+estudiar la eficacia de cada vendedor.
+A la derecha los filtros (tal cual los venis haciendo) a la izquierda muestra 
+el listado en pantalla según los filtros seleccionados dando la posibilidad de 
+imprimir directamente o bajar .csv)
 Filtros: 
 1) Asesor comercial, (asi llamamos a los vendedores... selecciona vendedor, en blanco todos)
 2) Empresa (en blanco muestra todas las empresas de ese vendedor o selecciona la empresa). 
 3) Oferta: (filtra las ofertas de ese vendedor, en blanco todas)
-4) Estado: Activas (muestra solo las que están activas -publicadas en ese momento - ), Pasadas (entre fechas), a publicar (son las que están cargadas pero aún no les ha llegado la fecha de publicación)
+4) Estado: Activas (muestra solo las que están activas -publicadas en ese momento - ), 
+Pasadas (entre fechas), a publicar (son las que están cargadas pero aún no les ha llegado la fecha de publicación)
 5) Estado de pago: (completado, pendiente, error (en blanco = todas)
 5) Liquidación: 
     Listar: Asesor comercial: (Cabecera del listado). Valor publicado, Estado (completado, pendiente, error), porcentaje de oferta/ofertón (según el porcentaje acordado en el alta de la oferta) porcentaje a liquidar (según el cargado en alta de vendedores). Totales: Al final del listado muestra la suma de: La cantidad de ofertas listadas, el total del valor publicado, comisión ahorraseguro (la suma que deriva del porcentaje de comisión aplicado a cada oferta -dado de alta en cada oferta-), comisión asesor (el x% de la comisión de vendedor indicada en alta de vendedores que se saca del ítem anterior, que es la comisión de ahorraseguro) (ejemplo: una ofertón se publica a $100. Para ahorraseguro es el 30% ($30), para el vendedor es el 20% de nuestro 30% ($6) - el valor de nuestro porcentaje se toma del indicado en la carga de esa oferta y el del vendedor se toma del cargado para ese vendedor)
@@ -47,3 +51,7 @@ DONE:
 - quitar http://mendozaoferta.cooph.com.ar/
 - borrar los 50000 que metimos en la DB
 - agregar datos del comercio en el envío del cupon
+
+
+
+

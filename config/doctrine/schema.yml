@@ -87,6 +87,13 @@ Payment:
     dm_method: integer
     dm_medium: string
     dm_installments: integer
+    dm_buyer_email: string
+    dm_buyer_address: string
+    dm_buyer_comment: string
+    dm_buyer_name: string
+    dm_buyer_phone: string
+    dm_buyer_tipodoc: string
+    dm_buyer_numdoc: string
 
     
   relations:

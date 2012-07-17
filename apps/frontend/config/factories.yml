@@ -2,6 +2,15 @@
 # http://www.symfony-project.org/reference/1_4/en/05-Factories
 
 prod:
+  mailer:
+    param:
+      transport:
+        class: Swift_SmtpTransport
+        param:
+          host:     mail.ahorraseguro.com.ar
+          username: contacto@ahorraseguro.com.ar
+          password: Cont2Aho
+
   logger:
     class: sfAggregateLogger  
     param:
@@ -39,14 +48,7 @@ dev:
     param:
       delivery_strategy:  single_address
       delivery_address:  diego@cooperativahormigon.com.ar
-      transport:
-        class: Swift_SmtpTransport
-        param:
-          host:       smtp.gmail.com
-          port:       465
-          encryption: ssl
-          username: diego@cooperativahormigon.com.ar
-          password: qwerpoiu
+
 
 all:
   routing:

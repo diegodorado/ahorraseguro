@@ -60,6 +60,13 @@ class Payment extends BasePayment
           'dm_method' => (int)$op->METODOPAGO,
           'dm_medium' => (string)$op->MEDIOPAGO,
           'dm_installments' => (int)$op->CUOTAS,
+          'dm_buyer_email' => (string)$op->COMPRADOR->EMAIL,
+          'dm_buyer_address' => (string)$op->COMPRADOR->DIRECCION,
+          'dm_buyer_comment' => (string)$op->COMPRADOR->COMENTARIO,
+          'dm_buyer_name' => (string)$op->COMPRADOR->NOMBRE,
+          'dm_buyer_phone' => (string)$op->COMPRADOR->TELEFONO,
+          'dm_buyer_tipodoc' => (string)$op->COMPRADOR->TIPODOC,
+          'dm_buyer_numdoc' => (string)$op->COMPRADOR->NUMERODOC,
           ));
           
         switch ((int)$op->ESTADO) {

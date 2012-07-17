@@ -25,6 +25,7 @@ class paymentsActions extends sfActions
     $payment->setRealValue($deal->getRealValue());
     $payment->setStatus('N');
     $payment->save();
+    //todo: mejorar la generacion del codigo
     $payment->setCode(1000 + $payment->getId());
     $payment->save();
     
@@ -44,6 +45,18 @@ class paymentsActions extends sfActions
       'item_ammount_1'=> $payment->getPrice()*100,
       'item_currency_1'=>'ars',
     );
+    
+
+    $message = Swift_Message::newInstance()
+      ->setFrom(array(sfConfig::get('app_from_email')=>sfConfig::get('app_from_fullname')))
+      ->setSubject('Tu compra por '.$payment->getDeal()->getTitle())
+      ->setBody('test')
+      ->setContentType("text/html")
+      ->setTo($payment->getUser()->getEmail())
+    ;
+    $this->getMailer()->send($message);
+
+    
     $parameters = array_merge(sfConfig::get('app_dineromail_checkout_params'),$parameters);
     $url = sfConfig::get('app_dineromail_checkout_url').'?'.http_build_query($parameters);
     $this->redirect($url);
@@ -78,7 +91,7 @@ class paymentsActions extends sfActions
       case 'A':
         //ACREDITADO
         $this->getUser()->setFlash('notice', sprintf('Hemos recibido tu pago por %s. Te hemos enviado un email con el cupon a %s.', $payment->getDeal()->getTitle(),$payment->getUser()->getEmail()));
-        $payment->check_status();
+        $payment->check_status();//????
         $this->redirect($this->generateUrl('user_deals'));
         break;
       case 'P':
@@ -105,7 +118,7 @@ class paymentsActions extends sfActions
   public function executeNotification(sfWebRequest $request)
   {
     $notificacion = $request->getPostParameter('Notificacion');
-    //$notificacion = $_REQUEST['Notificacion'];
+    
     try {
       $doc = new SimpleXMLElement($notificacion);
 
