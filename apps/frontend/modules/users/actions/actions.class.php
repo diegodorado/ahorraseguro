@@ -4,6 +4,7 @@ class usersActions extends sfActions
 {
   public function executeRegister(sfWebRequest $request) {
 		if($this->getUser()->isAuthenticated()){
+        $this->getUser()->setFlash('notice', 'Ya estás conectado.');
 		  $this->redirect($request->getParameter('referer', '@homepage'));
 		}
 		$this->form = new userRegisterForm();
@@ -23,6 +24,7 @@ class usersActions extends sfActions
           ->setTo($user->getEmail())
         ;
         $this->getMailer()->send($message);
+        $this->getUser()->setFlash('notice', 'Bienvenido! Ya podés empezar a ahorrar seguro.');
 
         $this->redirect($request->getParameter('referer', '@homepage'));
       }
