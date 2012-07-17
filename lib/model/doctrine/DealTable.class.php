@@ -56,13 +56,13 @@ class DealTable extends Doctrine_Table
       ->andWhere('d.ends_at > ?', date('Y-m-d H:i:s', time()))
       ->andWhere('d.is_oferton = ?', false)
       ->orderby('rand')
-      ->limit(22);
+      ->limit(35);
     if(self::getRandomExcludedCategoryId()){
       $q->andWhere('d.category_id <> ?', self::getRandomExcludedCategoryId());
     }
     self::$random_left_ids = array();
     self::$random_right_ids = array();
-    $i=0;
+    $i=1;
     $results = $q->execute(array(),Doctrine_Core::HYDRATE_ARRAY);
     foreach($results as $r){
       if (($i%2)==0  || $i<2){
